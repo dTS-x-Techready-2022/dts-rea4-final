@@ -1,14 +1,15 @@
 import { auth } from "../utils/firebase";
 
 const register = async (username, email, password) => {
-   try {
-      const response = await auth.createUserWithEmailAndPassword(email, password);
-      console.log(response);
+   const response = await auth.createUserWithEmailAndPassword(email, password);
+   console.log(response);
+   if (response.user) {
       localStorage.setItem("user", JSON.stringify(response.user));
+      return response.user;
+   } else {
       return response;
-   } catch (error) {
-      console.log(error);
    }
+
 };
 
 const login = async (email, password) => {
@@ -16,8 +17,10 @@ const login = async (email, password) => {
    console.log(response.user.email);
    if (response.user) {
       localStorage.setItem("user", JSON.stringify(response.user));
+      return response.user;
+   } else {
+      return response;
    }
-   return response.user;
 };
 
 const logout = async () => {
