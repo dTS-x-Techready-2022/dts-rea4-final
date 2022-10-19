@@ -1,4 +1,4 @@
-## REA4C - My NEWS
+## REA4C - ID NEWS
 
 - Redux-toolkit
 - Register Function
