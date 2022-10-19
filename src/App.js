@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home/Home";
+import Home from "./Page/Home/Home";
 import { SignIn } from "./components/SignIn/SignIn";
 import { SignUp } from "./components/SignUp/SignUp";
 import { listener } from "./utils/firebase/listener";

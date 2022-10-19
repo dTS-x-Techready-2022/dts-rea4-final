@@ -1,9 +1,9 @@
 import React from 'react'
-import Banner from '../../Components/Banner/Banner'
-import Footer from '../../Components/Footer/Footer'
-import List from '../../Components/List/List'
-import NavbarMenu from '../../Components/NavbarMenu/NavbarMenu'
-import Top10List from '../../Components/Top10List/Top10List'
+import Banner from '../../components/Banner/Banner'
+import Footer from '../../components/Footer/Footer'
+import List from '../../components/List/List'
+import NavbarMenu from '../../components/NavbarMenu/NavbarMenu'
+import Top10List from '../../components/Top10List/Top10List'
 import './Home.scss'
 function Home() {
   return (

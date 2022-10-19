@@ -53,7 +53,10 @@ export const SignUp = () => {
 
   return (
     <section className="vh-100">
-      <MDBContainer fluid className="h-custom">
+      <MDBContainer fluid className="h-custom" style={{
+        paddingRight: "calc(var(--bs-gutter-x) * .5)",
+        paddingLeft: "calc(var(--bs-gutter-x) * .5)",
+      }}>
         <MDBRow>
           <MDBCol
             lg="6"

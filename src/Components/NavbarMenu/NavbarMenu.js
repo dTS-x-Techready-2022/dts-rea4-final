@@ -1,13 +1,24 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import ContainerFluid from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../img/logo.png';
 import { Search,CaretDownFill,BellFill,Gift} from 'react-bootstrap-icons';
+import { signingOut } from "../../utils/firebase/signout";
+import logo from '../../img/logo.png';
 import "./NavbarMenu.scss";
 
 function NavbarMenu() {
+  const navigate = useNavigate();
+
+  const signOut = async () => {
+    const loggedOut = await signingOut();
+    if (!loggedOut.message) {
+      navigate("/signup");
+    }
+  };
+
     const [isSrolled, setIsSrolled] = useState(false);
     window.onscroll = () =>{
         setIsSrolled(window.pageYOffset === 0 ? false : true);
@@ -37,7 +48,7 @@ function NavbarMenu() {
                         <CaretDownFill className="icon"/>
                         <div className="options">
                             <span>Setting</span>
-                            <span>Logout</span>
+                            <span onClick={signOut}>Logout</span>
                         </div>
                     </div>
                 </div>
