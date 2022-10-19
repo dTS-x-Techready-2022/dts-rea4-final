@@ -5,12 +5,15 @@ import * as Yup from "yup";
 
 import { register } from "../../slices/auth";
 import { clearMessage } from "../../slices/message";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const FormRegister = () => {
    const [successful, setSuccessful] = useState(false);
-
+   const { isLoggedIn } = useSelector((state) => state.auth);
    const { message } = useSelector((state) => state.message);
+   
    const dispatch = useDispatch();
+   let navigate = useNavigate();
 
    useEffect(() => {
       dispatch(clearMessage());
@@ -53,11 +56,17 @@ const FormRegister = () => {
          .unwrap()
          .then(() => {
             setSuccessful(true);
+            navigate("/profile");
+            window.location.reload();
          })
          .catch(() => {
             setSuccessful(false);
          });
    };
+
+   if (isLoggedIn) {
+      return <Navigate to="/profile" />;
+   }
 
    return (
       <div className="col-md-12 signup-form">

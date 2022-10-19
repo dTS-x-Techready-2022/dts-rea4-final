@@ -11,7 +11,6 @@ const FormLogin = () => {
    let navigate = useNavigate();
 
    const [loading, setLoading] = useState(false);
-
    const { isLoggedIn } = useSelector((state) => state.auth);
    const { message } = useSelector((state) => state.message);
 
@@ -22,20 +21,20 @@ const FormLogin = () => {
    }, [dispatch]);
 
    const initialValues = {
-      username: "",
+      email: "",
       password: "",
    };
 
    const validationSchema = Yup.object().shape({
-      username: Yup.string().required("This field is required!"),
+      email: Yup.string().required("This field is required!"),
       password: Yup.string().required("This field is required!"),
    });
 
    const handleLogin = (formValue) => {
-      const { username, password } = formValue;
+      const { email, password } = formValue;
       setLoading(true);
 
-      dispatch(login({ username, password }))
+      dispatch(login({ email, password }))
          .unwrap()
          .then(() => {
             navigate("/profile");
@@ -66,17 +65,17 @@ const FormLogin = () => {
                {({ errors, touched }) => (
                   <Form>
                      <div className="form-group">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="email">Email</label>
                         <Field
-                           name="username"
+                           name="email"
                            type="text"
                            className={
                               "form-control" +
-                              (errors.username && touched.username ? " is-invalid" : "")
+                              (errors.email && touched.email ? " is-invalid" : "")
                            }
                         />
                         <ErrorMessage
-                           name="username"
+                           name="email"
                            component="div"
                            className="invalid-feedback"
                         />

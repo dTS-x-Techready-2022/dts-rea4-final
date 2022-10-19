@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -15,36 +15,13 @@ import BoardAdmin from "./app/components/boards/BoardAdmin";
 
 import { logout } from "./app/slices/auth";
 
-import EventBus from "./app/utils/EventBus";
-
 const App = () => {
-   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-   const [showAdminBoard, setShowAdminBoard] = useState(false);
-
    const { user: currentUser } = useSelector((state) => state.auth);
    const dispatch = useDispatch();
 
    const logOut = useCallback(() => {
       dispatch(logout());
    }, [dispatch]);
-
-   useEffect(() => {
-      if (currentUser) {
-         setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
-         setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
-      } else {
-         setShowModeratorBoard(false);
-         setShowAdminBoard(false);
-      }
-
-      EventBus.on("logout", () => {
-         logOut();
-      });
-
-      return () => {
-         EventBus.remove("logout");
-      };
-   }, [currentUser, logOut]);
 
    return (
       <Router>
@@ -60,22 +37,6 @@ const App = () => {
                      </Link>
                   </li>
 
-                  {showModeratorBoard && (
-                     <li className="nav-item">
-                        <Link to={"/mod"} className="nav-link">
-                           Moderator Board
-                        </Link>
-                     </li>
-                  )}
-
-                  {showAdminBoard && (
-                     <li className="nav-item">
-                        <Link to={"/admin"} className="nav-link">
-                           Admin Board
-                        </Link>
-                     </li>
-                  )}
-
                   {currentUser && (
                      <li className="nav-item">
                         <Link to={"/user"} className="nav-link">
@@ -89,11 +50,11 @@ const App = () => {
                   <div className="navbar-nav ml-auto">
                      <li className="nav-item">
                         <Link to={"/profile"} className="nav-link">
-                           {currentUser.username}
+                           {currentUser.email}
                         </Link>
                      </li>
                      <li className="nav-item">
-                        <a href="/login" className="nav-link" onClick={logOut}>
+                        <a href="#" className="nav-link" onClick={logOut}>
                            LogOut
                         </a>
                      </li>
@@ -125,6 +86,7 @@ const App = () => {
                   <Route path="/user" element={<BoardUser />} />
                   <Route path="/mod" element={<BoardModerator />} />
                   <Route path="/admin" element={<BoardAdmin />} />
+                  <Route path="*" element={<h1>404 Not Found</h1>} />
                </Routes>
             </div>
          </div>
