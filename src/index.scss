@@ -1,102 +1,31 @@
-// CORE FUNCTIONS
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/functions';
-@import 'mdb-react-ui-kit/dist/scss/free/functions';
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 
-// CORE VARIABLES
-@import './custom/variables';
-@import 'mdb-react-ui-kit/dist/scss/free/variables';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/variables';
+}
 
-// BOOTSTRAP CORE
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/mixins';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/utilities';
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
-// BOOTSTRAP CORE COMPONENTS
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/root';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/reboot';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/type';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/images';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/containers';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/grid';
-
-// BOOTSTRAP COMPONENTS
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/tables';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/forms';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/buttons';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/transitions';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/dropdown';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/button-group';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/nav';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/navbar';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/card';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/breadcrumb';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/pagination';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/badge';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/alert';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/accordion';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/progress';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/placeholders';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/list-group';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/close';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/toasts';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/modal';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/popover';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/carousel';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/spinners';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/offcanvas';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/tooltip';
-
-// Helpers
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/helpers';
-
-// Utilities
-@import 'mdb-react-ui-kit/dist/scss/free/utilities';
-@import 'mdb-react-ui-kit/dist/scss/bootstrap-rtl-fix/utilities/api';
-
-// MDB CORE
-@import 'mdb-react-ui-kit/dist/scss/free/mixins';
-@import 'mdb-react-ui-kit/dist/scss/free/utilities';
-
-// MDB CORE COMPONENTS
-@import 'mdb-react-ui-kit/dist/scss/free/root';
-@import 'mdb-react-ui-kit/dist/scss/free/reboot';
-@import 'mdb-react-ui-kit/dist/scss/free/type';
-@import 'mdb-react-ui-kit/dist/scss/free/colors';
-@import 'mdb-react-ui-kit/dist/scss/free/shadows';
-@import 'mdb-react-ui-kit/dist/scss/free/flag';
-@import 'mdb-react-ui-kit/dist/scss/free/images';
-
-// MDB FORMS
-@import 'mdb-react-ui-kit/dist/scss/free/forms/form-control';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/form-select';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/form-check';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/form-file';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/input-group';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/validation';
-@import 'mdb-react-ui-kit/dist/scss/free/forms/form-range';
-
-// MDB COMPONENTS
-@import 'mdb-react-ui-kit/dist/scss/free/tables';
-@import 'mdb-react-ui-kit/dist/scss/free/buttons';
-@import 'mdb-react-ui-kit/dist/scss/free/deprecated';
-@import 'mdb-react-ui-kit/dist/scss/free/dropdown';
-@import 'mdb-react-ui-kit/dist/scss/free/button-group';
-@import 'mdb-react-ui-kit/dist/scss/free/nav';
-@import 'mdb-react-ui-kit/dist/scss/free/navbar';
-@import 'mdb-react-ui-kit/dist/scss/free/card';
-@import 'mdb-react-ui-kit/dist/scss/free/breadcrumb';
-@import 'mdb-react-ui-kit/dist/scss/free/pagination';
-@import 'mdb-react-ui-kit/dist/scss/free/badge';
-@import 'mdb-react-ui-kit/dist/scss/free/alert';
-@import 'mdb-react-ui-kit/dist/scss/free/progress';
-@import 'mdb-react-ui-kit/dist/scss/free/list-group';
-@import 'mdb-react-ui-kit/dist/scss/free/close';
-@import 'mdb-react-ui-kit/dist/scss/free/modal';
-@import 'mdb-react-ui-kit/dist/scss/free/toasts';
-@import 'mdb-react-ui-kit/dist/scss/free/tooltip';
-@import 'mdb-react-ui-kit/dist/scss/free/popover';
-@import 'mdb-react-ui-kit/dist/scss/free/scrollspy';
-@import 'mdb-react-ui-kit/dist/scss/free/ripple';
-@import 'mdb-react-ui-kit/dist/scss/free/range';
-@import 'mdb-react-ui-kit/dist/scss/free/accordion';
-@import 'mdb-react-ui-kit/dist/scss/free/carousel';
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
