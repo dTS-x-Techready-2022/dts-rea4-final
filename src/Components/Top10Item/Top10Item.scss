@@ -1,0 +1,25 @@
+
+.cardTop10{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .left{
+        width:50%;
+        padding: 5px;
+        justify-content: center;
+        .chart{
+            font-family: 'Londrina Outline', cursive;
+            font-size:300px !important;
+            color:white;
+        }
+    }
+    .right{
+        width:50%;
+        padding: 5px;
+        margin-left: -40px;
+        justify-content: center;
+        img{
+            height: 100%;
+        }
+    }
+}
