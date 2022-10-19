@@ -76,27 +76,43 @@
 @import 'mdb-react-ui-kit/dist/scss/free/forms/form-range';
 
 // MDB COMPONENTS
-@import 'mdb-react-ui-kit/dist/scss/free/tables';
-@import 'mdb-react-ui-kit/dist/scss/free/buttons';
-@import 'mdb-react-ui-kit/dist/scss/free/deprecated';
-@import 'mdb-react-ui-kit/dist/scss/free/dropdown';
-@import 'mdb-react-ui-kit/dist/scss/free/button-group';
-@import 'mdb-react-ui-kit/dist/scss/free/nav';
-@import 'mdb-react-ui-kit/dist/scss/free/navbar';
-@import 'mdb-react-ui-kit/dist/scss/free/card';
-@import 'mdb-react-ui-kit/dist/scss/free/breadcrumb';
-@import 'mdb-react-ui-kit/dist/scss/free/pagination';
-@import 'mdb-react-ui-kit/dist/scss/free/badge';
-@import 'mdb-react-ui-kit/dist/scss/free/alert';
-@import 'mdb-react-ui-kit/dist/scss/free/progress';
-@import 'mdb-react-ui-kit/dist/scss/free/list-group';
-@import 'mdb-react-ui-kit/dist/scss/free/close';
-@import 'mdb-react-ui-kit/dist/scss/free/modal';
-@import 'mdb-react-ui-kit/dist/scss/free/toasts';
-@import 'mdb-react-ui-kit/dist/scss/free/tooltip';
-@import 'mdb-react-ui-kit/dist/scss/free/popover';
-@import 'mdb-react-ui-kit/dist/scss/free/scrollspy';
-@import 'mdb-react-ui-kit/dist/scss/free/ripple';
-@import 'mdb-react-ui-kit/dist/scss/free/range';
-@import 'mdb-react-ui-kit/dist/scss/free/accordion';
-@import 'mdb-react-ui-kit/dist/scss/free/carousel';
+// @import 'mdb-react-ui-kit/dist/scss/free/tables';
+// @import 'mdb-react-ui-kit/dist/scss/free/buttons';
+// @import 'mdb-react-ui-kit/dist/scss/free/deprecated';
+// @import 'mdb-react-ui-kit/dist/scss/free/dropdown';
+// @import 'mdb-react-ui-kit/dist/scss/free/button-group';
+// @import 'mdb-react-ui-kit/dist/scss/free/nav';
+// @import 'mdb-react-ui-kit/dist/scss/free/navbar';
+// @import 'mdb-react-ui-kit/dist/scss/free/card';
+// @import 'mdb-react-ui-kit/dist/scss/free/breadcrumb';
+// @import 'mdb-react-ui-kit/dist/scss/free/pagination';
+// @import 'mdb-react-ui-kit/dist/scss/free/badge';
+// @import 'mdb-react-ui-kit/dist/scss/free/alert';
+// @import 'mdb-react-ui-kit/dist/scss/free/progress';
+// @import 'mdb-react-ui-kit/dist/scss/free/list-group';
+// @import 'mdb-react-ui-kit/dist/scss/free/close';
+// @import 'mdb-react-ui-kit/dist/scss/free/modal';
+// @import 'mdb-react-ui-kit/dist/scss/free/toasts';
+// @import 'mdb-react-ui-kit/dist/scss/free/tooltip';
+// @import 'mdb-react-ui-kit/dist/scss/free/popover';
+// @import 'mdb-react-ui-kit/dist/scss/free/scrollspy';
+// @import 'mdb-react-ui-kit/dist/scss/free/ripple';
+// @import 'mdb-react-ui-kit/dist/scss/free/range';
+// @import 'mdb-react-ui-kit/dist/scss/free/accordion';
+// @import 'mdb-react-ui-kit/dist/scss/free/carousel';
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
