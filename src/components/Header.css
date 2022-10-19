@@ -1,0 +1,31 @@
+.header-wrap {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 2px -2px rgb(0 0 0 / 0.2);
+}
+
+.header-menu-wrap {
+    justify-content: space-around;
+    display: block;
+}
+
+img {
+    margin-bottom: 1rem;
+}
+
+.card {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+
+.menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.menu li {
+    margin-right: 1rem;
+    font-weight: bold;
+}
