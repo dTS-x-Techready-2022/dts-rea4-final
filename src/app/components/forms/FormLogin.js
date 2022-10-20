@@ -114,6 +114,10 @@ const FormLogin = () => {
                   </Form>
                )}
             </Formik>
+
+            <small>Email :  test@test.com</small>
+            <small>Password : 123456</small>
+
          </div>
 
          {message && (
