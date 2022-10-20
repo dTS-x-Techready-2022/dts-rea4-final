@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
           window.location.replace("/");
         }
       } else {
-        if (pathname === "/") {
+        if (!(pathname === "/sign-in" || pathname === "/sign-up")) {
           window.location.replace("/sign-in");
         }
       }
