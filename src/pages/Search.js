@@ -24,7 +24,7 @@ const Search = () => {
   };
 
   return (
-    <div className="pt-20 bg-gray-900 h-screen">
+    <div className="pt-20 bg-gray-900 h-full">
       <div className="container mx-auto">
         <div className="w-full px-4">
           <SearchBar

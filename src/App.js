@@ -7,6 +7,7 @@ import "./App.css";
 import Nav from "components/Nav";
 import HomePages from "pages/HomePages";
 import Search from "pages/Search";
+import LoginPage from "pages/LoginPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<HomePages />} />
           <Route exact path="/search" element={<Search />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
     </Router>
