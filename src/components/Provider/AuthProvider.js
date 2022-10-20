@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
     listener((val) => {
       const pathname = window.location.pathname;
       if (val) {
-        if (pathname !== "/") {
+        if (pathname === "/sign-in" || pathname === "/sign-up") {
           window.location.replace("/");
         }
       } else {
