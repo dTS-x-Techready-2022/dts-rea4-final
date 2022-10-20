@@ -3,7 +3,7 @@ import Login from "./app/components/forms/FormLogin";
 import Register from "./app/components/forms/FormRegister";
 import Profile from "./app/pages/Profile";
 import Home from "./app/pages/Home";
-import Navtop from "./app/components/Navtop";
+import Header from "./app/components/Header";
 import { Container } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,7 +17,7 @@ const App = () => {
    return (
       <>
          <Router>
-            <Navtop />
+            <Header />
 
             <Container fluid>
                <div className="py-2 py-lg-0 px-lg-5">

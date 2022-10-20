@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Navtop() {
+function Header() {
    return (
       <>
          <Container fluid className='bg-light'>
@@ -63,4 +63,4 @@ function Navtop() {
    );
 }
 
-export default Navtop;
+export default Header;
