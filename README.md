@@ -1,4 +1,14 @@
-## REA4C 10 - ID NEWS
+## REA4C 10 - INDONEWS
+
+TODO :
+
+[ ] Fetch news API
+[ ] Page detail news
+[ ] Search news
+[ ] Newsletter fake input
+[ ] Dashboard - Count seen news
+[ ] Dashboard - Show list seen news
+[ ] Categories - Optional
 
 Features :
 
