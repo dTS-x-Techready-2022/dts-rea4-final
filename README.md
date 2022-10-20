@@ -2,13 +2,13 @@
 
 TODO :
 
-[ ] Fetch news API
-[ ] Page detail news
-[ ] Search news
-[ ] Newsletter fake input
-[ ] Dashboard - Count seen news
-[ ] Dashboard - Show list seen news
-[ ] Categories - Optional
+[ ] Fetch news API <br>
+[ ] Page detail news <br>
+[ ] Search news <br>
+[ ] Newsletter fake input <br>
+[ ] Dashboard - Count seen news <br>
+[ ] Dashboard - Show list seen news <br>
+[ ] Categories - Optional <br>
 
 Features :
 
