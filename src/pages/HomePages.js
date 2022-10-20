@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// import GameCard from "components/GameCard";
+import Results from "components/Results";
 
 const HomePages = () => {
   useEffect(() => {
@@ -11,22 +13,15 @@ const HomePages = () => {
     fetch(
       "https://api.rawg.io/api/games" +
         "?key=5aaf45127762461a8cdd44c3b8c6ca0c" +
-        "&page_size=40"
+        "&page_size=9"
     )
       .then((resp) => resp.json())
       .then(({ results }) => setGames(results));
   };
 
   return (
-    <div>
-      <ul className="mt-20">
-        {games.map((game) => (
-          <li key={game.id}>
-            <h3>{game.name}</h3>
-            <img src={game.background_image} alt="game" />
-          </li>
-        ))}
-      </ul>
+    <div className="pt-20 bg-gray-900">
+      <Results gameResults={games} />
     </div>
   );
 };
