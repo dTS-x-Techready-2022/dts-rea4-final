@@ -1,103 +1,133 @@
 .featured {
-    height: 80vh;
-    position: relative;    
-    background: black;
-    overflow: hidden;
+  height: 80vh;
+}
 
-    .category {
-      position: absolute;
-      top: 80px;
-      left: 50px;
-      font-size: 30px;
-      font-weight: 500;
-      color: white;
-      display: flex;
-      align-items: center;
-  
-      select {
-        cursor: pointer;
-        background-color: black;
-        border: 1px solid white;
-        color: white;
-        margin-left: 20px;
-        padding: 5px;
-      }
-    }
-  
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.6;
-    }
-  
-    .info {
-      width: 35%;
-      position: absolute;
-      left: 50px;
-      bottom: 300px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-  
-      img {
-        width: 400px;
-      }
-  
-      .desc {
-        margin: 20px 0px;
-      }
-  
-      .buttons {
-        display: flex;
-  
-        button {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-          font-weight: 500;
-          margin-right: 10px;
-          cursor: pointer;
-  
-          &.play {
-            background-color: white;
-            color: black;
-          }
-  
-          &.more {
-            background-color: gray;
-            color: white;
-          }
-  
-          span {
-            margin-left: 5px;
-          }
-        }
-      }
-    }
+.featured--vertical {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, #111 10%, transparent 90%);
+}
+
+.featured--horizontal {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, #111 30%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+  padding-bottom: 100px;
+  padding-top: 70px;
+}
+
+.featured--name {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.featured--info {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.featured--points, 
+.featured--year, 
+.featured--seasons {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.featured--points {
+  color: #46d369;
+}
+
+.featured--description {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #999;
+  max-width: 40%;
+}
+
+.featured--buttons {
+  margin-top: 15px;
+}
+
+.featured--watchButton,
+.featured--myListButton {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+  opacity: 1;
+  transition: 0.3s all ease;
+}
+.featured--watchButton:hover,
+.featured--myListButton:hover {
+  opacity: 0.7;
+}
+
+.featured--watchButton {
+  background-color: #FFF;
+  color: #000;
+}
+
+.featured--myListButton {
+  background-color: #333;
+  color: #FFF;
+}
+
+.featured--genres {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #999;
+}
+
+@media (max-width:760px) {
+  .featured{
+      height: 90vh;
   }
 
-  @media (max-width: 480px) {
-    .featured {
-      height: 300px;
-      position: static;  
-      img {
-        width: 100%;
-      }
+  .featured--name{
+      font-size: 40px;
+  }
 
-      .category {
-        position: absolute;
-        top: 80px;
-        left: 50px;
-        font-size: 30px;
-        font-weight: 500;
-        color: white;
-        display: flex;
-        align-items: center;
-      }
-    }
- }
+  .featured--info{
+      font-size: 16px;
+  }
+
+  .featured--description{
+      font-size: 14px;
+      max-width: 100%;
+      margin-right: 30px;
+  }
+
+  .featured--watchButton, 
+  .featured--myListButton{
+      font-size: 16px;
+  }
+
+  .featured--genres{
+      font-size: 14px;
+  }
+  .featured--vertical {
+    width: inherit;
+    height: inherit;
+    background: transparent;
+  }
+  
+  .featured--horizontal {
+    width: inherit;
+    height: inherit;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+    padding-bottom: 100px;
+    padding-top: 70px;
+  }
+}

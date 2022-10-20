@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Search, CaretDownFill, BellFill, Gift } from "react-bootstrap-icons";
 import { signingOut } from "../../utils/firebase/signout";
-import logo from "../../img/logo.png";
+import logo from "../../assets/img/logo.png";
 import "./NavbarMenu.scss";
 
 function NavbarMenu() {

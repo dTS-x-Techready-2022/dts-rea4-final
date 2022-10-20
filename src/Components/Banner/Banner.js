@@ -22,13 +22,18 @@ const Banner = () => {
       {banner.map((item, index) => {
         return (
           <Carousel.Item key={index}>
-            <div className="featured">
-              <img src={item.img} alt="" />
-              <div className="info">
-                <h1>{item.title}</h1>
-                <p className="desc">{item.desc}</p>
-              </div>
-            </div>
+             <section className="featured" style={{
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundImage: `url(${item.img})`
+              }}>
+                  <div className="featured--vertical">
+                      <div className="featured--horizontal">
+                          <div className="featured--name">{item.title}</div>
+                          <div className="featured--description">{item.desc}</div>
+                      </div>
+                  </div>
+              </section>
           </Carousel.Item>
         );
       })}
