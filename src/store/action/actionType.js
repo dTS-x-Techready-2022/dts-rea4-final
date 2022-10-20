@@ -1,0 +1,1 @@
+export const FETCH_TECH_NEWS = "FETCH_TECH_NEWS"
