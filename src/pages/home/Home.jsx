@@ -1,47 +1,46 @@
-import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-
-import { collection, addDoc, doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import CardNews from "../../components/cardnews/CardNews";
+import { useState } from "react";
 
 const Home = () => {
-  const { logOut, user } = useAuth();
-  const navigate = useNavigate();
-
-  console.log(user);
-
-  const handleLogout = async () => {
-    try {
-      await logOut();
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const addData = async () => {
-    try {
-      const data = {
-        nama: "ini nama",
-        link: "ini link"
-      }
-
-      if (user) {
-        const uid = user.uid;
-        await setDoc(doc(db, "readinglist", uid), data);
-      }
-
-    } catch (error) {
-      console.log(error)
-    }
-  };
+  const [mockData, setMockData] = useState([
+    {
+      img: "https://mui.com/static/images/cards/paella.jpg",
+      title: "Contoh Title",
+      link: "contoh link ke detail",
+      time: "2 hour ago",
+    },
+    {
+      img: "https://mui.com/static/images/cards/paella.jpg",
+      title: "Contoh Title",
+      link: "contoh link ke detail",
+      time: "2 hour ago",
+    },
+    {
+      img: "https://mui.com/static/images/cards/paella.jpg",
+      title: "Contoh Title",
+      link: "contoh link ke detail",
+      time: "2 hour ago",
+    },
+    {
+      img: "https://mui.com/static/images/cards/paella.jpg",
+      title: "Contoh Title",
+      link: "contoh link ke detail",
+      time: "2 hour ago",
+    },
+  ]);
 
   return (
     <div>
-      Home, {user ? <button onClick={handleLogout}>Sign out</button> : <></>}
-      <div>
-        add data by user <button onClick={addData}>Add</button>
-      </div>
+      Home
+      {/* {mockData.map((item, index) => (
+        <CardNews
+          key={index}
+          image={item.img}
+          link={item.link}
+          time={item.time}
+          title={item.title}
+        />
+      ))} */}
     </div>
   );
 };
