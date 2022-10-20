@@ -11,8 +11,8 @@ export default function Home() {
       <>
          <TopNews />
          <Hero />
-         <div class="row">
-            <div class="col-lg-8">
+         <div className="row">
+            <div className="col-lg-8">
                <Latest />
             </div>
 

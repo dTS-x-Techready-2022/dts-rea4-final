@@ -11,7 +11,7 @@ export default function Latest() {
          </div>
          <div className="col-lg-6">
             <div className="position-relative mb-3">
-               <button type="button" class="btn btn-secondary btn-sm text-right" style={{ position: 'absolute', right: 0 }}>Sudah Dibaca</button>
+               <button type="button" className="btn btn-secondary btn-sm text-right" style={{ position: 'absolute', right: 0 }}>Sudah Dibaca</button>
                <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
                <div className="overlay position-relative bg-light">
                   <div className="mb-2" style={{ fontSize: 14 }}>

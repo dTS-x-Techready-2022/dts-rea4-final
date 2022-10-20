@@ -72,7 +72,7 @@ function Header() {
                               <NavDropdown.Item as={Link} href="/profile" to="/profile">Profile</NavDropdown.Item>
                               <NavDropdown.Divider />
                               <NavDropdown.Item href="#" onClick={handleLogout}>
-                                 <span class="fa fa-sign-out mr-1"></span> Logout
+                                 <span className="fa fa-sign-out mr-1"></span> Logout
                               </NavDropdown.Item>
                            </NavDropdown>
                         </>

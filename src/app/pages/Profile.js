@@ -34,7 +34,7 @@ const Profile = () => {
                   <br />
                   <strong>{currentUser.email}</strong>
                   <br /><br />
-                  <button type="button" class="btn btn-danger" onClick={handleLogout}><span class="fa fa-sign-out mr-1"></span>Logout</button>
+                  <button type="button" className="btn btn-danger" onClick={handleLogout}><span className="fa fa-sign-out mr-1"></span>Logout</button>
                </div>
             </div>
          </div>
