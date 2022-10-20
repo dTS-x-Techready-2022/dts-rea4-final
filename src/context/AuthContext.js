@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { auth } from "../firebase";
 import {
@@ -15,7 +15,7 @@ const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useLocalStorage('user',null);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -64,11 +64,11 @@ export const RequireAuth = () => {
 
 export const AlreadyAuth = () => {
   const { user } = useAuth();
-    const location = useLocation();
+  const location = useLocation();
 
   if (user) {
     return (
-      <Navigate to={{ pathname: "/home", state: { from: location } }} replace />
+      <Navigate to={{ pathname: "/", state: { from: location } }} replace />
     );
   }
 
