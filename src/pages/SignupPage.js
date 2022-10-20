@@ -1,22 +1,29 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthProvider';
+import { signingUp } from '../utils/firebase/signup';
 import { signingIn } from '../utils/firebase/signin';
 
-const LoginPage = () => {
-    const navigate = useNavigate();
+const SignupPage = () => {
     const { setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = async () => {
-        const signedIn = await signingIn(email, password);
-        if (!signedIn.message) {
-            console.log(signedIn.accessToken);
-            setUser(signedIn.accessToken);
-            navigate('/');
+    const signUp = async () => {
+        console.log(email, password);
+        const response = await signingUp(email, password);
+        console.log(response);
+        if (!response.message) {
+            setUser(response.accessToken);
+            // signingIn
+            const signedIn = await signingIn(email, password);
+            if (!signedIn.message) {
+                navigate('/');
+            }
         } else {
-            console.log(signedIn.message);
+            console.log('error');
         }
     };
 
@@ -44,10 +51,10 @@ const LoginPage = () => {
                         className="mb-3 text-5xl text-white text-center font-semibold leading-tight"
                         contenteditable="true"
                     >
-                        Login
+                        Sign up
                     </h2>
                     <p className="mb-11 pb-11 font-medium text-center text-lg text-gray-400 leading-normal border-b border-gray-900">
-                        Login to your account
+                        Please sign up
                     </p>
                     <form>
                         <label className="block mb-4">
@@ -76,45 +83,29 @@ const LoginPage = () => {
                         </label>
                         <div className="flex flex-wrap justify-between -m-2 mb-4">
                             <div className="w-auto p-2">
-                                <div className="flex items-center">
-                                    <input
-                                        className="w-4 h-4"
-                                        id="default-checkbox"
-                                        type="checkbox"
-                                        value=""
-                                    />
-                                    <label
-                                        className="ml-2 text-sm text-white font-medium"
-                                        for="default-checkbox"
-                                    >
-                                        Remember Me
-                                    </label>
-                                </div>
+                                <div className="flex items-center"></div>
                             </div>
                             <div className="w-auto p-2">
-                                <a className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
-                                    Forgot Password?
+                                <a
+                                    href="/login"
+                                    className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+                                >
+                                    Already have an account? Log in.
                                 </a>
                             </div>
                         </div>
                         <button
-                            onClick={signIn}
+                            onClick={signUp}
                             className="py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
                             type="button"
                         >
-                            Sign In
+                            Sign Up
                         </button>
                     </form>
                 </div>
-                <p className="text-white text-center font-medium">
-                    <span>Don’t have an account?</span>
-                    <a className="text-indigo-600 hover:text-indigo-700">
-                        Create free account
-                    </a>
-                </p>
             </div>
         </section>
     );
 };
 
-export default LoginPage;
+export default SignupPage;
