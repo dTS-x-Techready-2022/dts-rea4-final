@@ -106,7 +106,8 @@ const FormLogin = () => {
                         >
                            {loading && (
                               <span className="spinner-border spinner-border-sm"></span>
-                           )}
+
+                           )}&nbsp;
                            <span>Login</span>
                         </button>
                      </div>

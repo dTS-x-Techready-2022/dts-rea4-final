@@ -1,0 +1,19 @@
+@media (max-width: 991.98px) {
+  .navbar-light .navbar-nav .nav-link {
+    padding: 8px 15px;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+  .search-width {
+    width: 395px;
+  }
+}
+
+/* MObile */
+@media only screen and (max-width: 600px) {
+  .search-width {
+    width: unset;
+  }
+}

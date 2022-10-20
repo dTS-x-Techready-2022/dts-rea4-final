@@ -1,36 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import Hero from '../components/Hero';
+import Latest from '../components/Latest';
+import Newsletter from '../components/Newsletter';
+import SocialMedia from '../components/SocialMedia';
+import TopNews from '../components/TopNews';
 
-import UserService from "../services/user.service";
-
-const Home = () => {
-   const [content, setContent] = useState("");
-
-   useEffect(() => {
-      UserService.getPublicContent().then(
-         (response) => {
-            console.log(response);
-            setContent(response.data);
-         },
-         (error) => {
-            console.log(error);
-
-            const _content =
-               (error.response && error.response.data) ||
-               error.message ||
-               error.toString();
-
-            setContent(_content);
-         }
-      );
-   }, []);
+export default function Home() {
 
    return (
-      <div className="container">
-         <header className="jumbotron">
-            <h3>{content}</h3>
-         </header>
-      </div>
-   );
-};
+      <>
+         <TopNews />
+         <Hero />
+         <div class="row">
+            <div class="col-lg-8">
+               <Latest />
+            </div>
 
-export default Home;
+            <div className="col-lg-4 pt-3 pt-lg-0">
+               <SocialMedia />
+               <Newsletter />
+            </div>
+
+         </div>
+      </>
+   )
+}
