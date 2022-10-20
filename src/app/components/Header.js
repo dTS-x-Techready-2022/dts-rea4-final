@@ -18,6 +18,7 @@ function Header() {
       dispatch(logout());
    }, [dispatch]);
 
+   const date = new Date().toLocaleDateString('id-id', { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
    return (
       <>
@@ -25,16 +26,16 @@ function Header() {
             <Row className="align-items-center py-3 px-lg-5">
                <div className="col-lg-5">
                   <a href className="navbar-brand d-none d-lg-block">
-                     <img src="/banner.jpg" width={'100%'} height={70} />
+                     <img src="/banner.jpg" width={'100%'} height={50} />
                   </a>
                </div>
                <div className="col-lg-5">
                   <a href className="navbar-brand d-none d-lg-block">
-                     <img src="/banner.jpg" width={'100%'} height={70} />
+                     <img src="/banner.jpg" width={'100%'} height={50} />
                   </a>
                </div>
-               <div className="col-lg-2 text-center text-lg-right">
-                  Monday, January 01, 2045
+               <div className="col-lg-2 text-center text-lg-left">
+                  {date}
                </div>
             </Row>
          </Container>
@@ -64,6 +65,7 @@ function Header() {
                         </>
                      }
                   </Nav>
+
                   <Form className="d-flex ml-auto">
                      <Form.Control
                         type="search"
