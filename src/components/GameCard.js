@@ -18,7 +18,7 @@ const GameCard = ({ game }) => {
               {game.name}
             </h3>
             <div className="text-xs text-gray-500 space-x-2">
-              {game.parent_platforms.map((plt) => (
+              {game.parent_platforms.slice(0, 3).map((plt) => (
                 <span
                   className="inline-block py-1 px-2 rounded bg-gray-500 text-xs text-gray-50"
                   key={plt.platform.id}
@@ -55,9 +55,9 @@ const GameCard = ({ game }) => {
 
         {game.stores ? (
           <div className="flex mb-2 justify-between items-center">
-            <h4 className="text-sm font-medium">Genre</h4>
+            <h4 className="text-sm font-medium">Store</h4>
             <div className=" space-x-2">
-              {game.stores.map((store) => (
+              {game.stores.slice(0, 3).map((store) => (
                 <span
                   key={store.id}
                   className="inline-block py-1 px-2 rounded bg-gray-900 text-xs text-white "
