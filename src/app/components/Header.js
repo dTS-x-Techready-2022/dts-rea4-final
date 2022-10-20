@@ -1,11 +1,24 @@
+import { useCallback } from 'react';
 import { Navbar, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from "../slices/auth";
 
 function Header() {
+
+   const { user: currentUser } = useSelector((state) => state.auth);
+   const dispatch = useDispatch();
+
+   const handleLogout = useCallback(() => {
+      dispatch(logout());
+   }, [dispatch]);
+
+
    return (
       <>
          <Container fluid className='bg-light'>
@@ -32,20 +45,24 @@ function Header() {
                <Navbar.Toggle />
                <Navbar.Collapse>
                   <Nav className="me-auto my-2 my-lg-0" >
-                     <Nav.Link href="/">Home</Nav.Link>
-                     <Nav.Link href="dashboard">Dashboard</Nav.Link>
-                     <Nav.Link href="login">Login</Nav.Link>
-                     <Nav.Link href="register">Register</Nav.Link>
-                     <NavDropdown title="User" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                           Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                           Logout
-                        </NavDropdown.Item>
-                     </NavDropdown>
+                     <Nav.Link as={Link} to="/">Home</Nav.Link>
+                     {currentUser ? (
+                        <>
+                           <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                           <NavDropdown title="User" id="navbarScrollingDropdown">
+                              <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+                              <NavDropdown.Divider />
+                              <NavDropdown.Item href="#" onClick={handleLogout}>
+                                 Logout
+                              </NavDropdown.Item>
+                           </NavDropdown>
+                        </>
+                     ) :
+                        <>
+                           <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                           <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                        </>
+                     }
                   </Nav>
                   <Form className="d-flex ml-auto">
                      <Form.Control
