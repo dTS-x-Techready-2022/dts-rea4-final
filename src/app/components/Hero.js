@@ -12,7 +12,7 @@ export default function Hero() {
          <div className="col-lg-8 mb-3">
             <OwlCarousel className="position-relative" {...options1}>
                <div className="position-relative overflow-hidden" style={{ height: 435 }}>
-                  <img className="img-fluid h-100" src="https://unsplash.it/500/500/?image=5" style={{ objectFit: 'cover' }} />
+                  <img className="img-fluid h-100" src="https://unsplash.it/500/500/?image=5" style={{ objectFit: 'cover' }} alt="" />
                   <div className="overlay">
                      <div className="mb-1">
                         <a className="text-white" href>Technology</a>
@@ -23,7 +23,7 @@ export default function Hero() {
                   </div>
                </div>
                <div className="position-relative overflow-hidden" style={{ height: 435 }}>
-                  <img className="img-fluid h-100" src="https://unsplash.it/300/300/?image=6" style={{ objectFit: 'cover' }} />
+                  <img className="img-fluid h-100" src="https://unsplash.it/300/300/?image=6" style={{ objectFit: 'cover' }} alt="" />
                   <div className="overlay">
                      <div className="mb-1">
                         <a className="text-white" href>Technology</a>

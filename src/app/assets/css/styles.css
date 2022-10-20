@@ -42,9 +42,9 @@ h6,
 }
 
 .navbar-light .navbar-nav .nav-link {
-  padding: 15px;
+  padding: 8px 15px;
   color: var(--secondary);
-  font-weight: 400;
+  font-weight: 500;
   outline: none;
 }
 
@@ -52,6 +52,7 @@ h6,
 .navbar-light .navbar-nav .nav-link.active {
   color: var(--light);
   background: var(--primary);
+  border-radius: 8px;
 }
 
 .owl-carousel .owl-nav {
@@ -77,8 +78,8 @@ h6,
   justify-content: center;
   color: #dee2e6 !important;
   background: transparent;
-  border: 1px solid #dee2e6 !important;
-  font-size: 20px !important;
+  /* border: 1px solid #dee2e6 !important; */
+  font-size: 25px !important;
   transition: 0.3s;
 }
 
@@ -144,4 +145,18 @@ body {
 
 .bg-light {
   background-color: #ffffff !important;
+}
+
+.jumbotron.img-center {
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  color: #ed1c24;
+  cursor: pointer;
+}
+.btn-red {
+  background: #ed1c24;
+  color: white;
 }

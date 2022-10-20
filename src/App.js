@@ -11,6 +11,7 @@ import "./app/assets/css/App.css";
 import "./app/assets/css/styles.css";
 import "./app/assets/css/responsive.css";
 import 'font-awesome/css/font-awesome.min.css';
+import Dashboard from "./app/pages/Dashboard";
 
 const App = () => {
 
@@ -26,7 +27,8 @@ const App = () => {
                      <Route path="/login" element={<Login />} />
                      <Route path="/register" element={<Register />} />
                      <Route path="/profile" element={<Profile />} />
-                     <Route path="*" element={<h1>404 Not Found</h1>} />
+                     <Route path="/dashboard" element={<Dashboard />} />
+                     <Route path="*" element={<h1 style={{ textAlign: 'center', marginTop: 200 }}>404 Not Found</h1>} />
                   </Routes>
                </div>
             </Container>

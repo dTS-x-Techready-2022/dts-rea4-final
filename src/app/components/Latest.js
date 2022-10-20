@@ -11,7 +11,8 @@ export default function Latest() {
          </div>
          <div className="col-lg-6">
             <div className="position-relative mb-3">
-               <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} />
+               <button type="button" class="btn btn-secondary btn-sm text-right" style={{ position: 'absolute', right: 0 }}>Sudah Dibaca</button>
+               <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
                <div className="overlay position-relative bg-light">
                   <div className="mb-2" style={{ fontSize: 14 }}>
                      <a href>Technology</a>
@@ -23,7 +24,7 @@ export default function Latest() {
                </div>
             </div>
             <div className="d-flex mb-3">
-               <img src="https://unsplash.it/500/300/?image=13" style={{ width: 100, height: 100, objectFit: 'cover' }} />
+               <img src="https://unsplash.it/500/300/?image=13" style={{ width: 100, height: 100, objectFit: 'cover' }} alt="" />
                <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
                   <div className="mb-1" style={{ fontSize: 13 }}>
                      <a href>Technology</a>
@@ -34,7 +35,7 @@ export default function Latest() {
                </div>
             </div>
             <div className="d-flex mb-3">
-               <img src="https://unsplash.it/500/300/?image=14" style={{ width: 100, height: 100, objectFit: 'cover' }} />
+               <img src="https://unsplash.it/500/300/?image=14" style={{ width: 100, height: 100, objectFit: 'cover' }} alt="" />
                <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
                   <div className="mb-1" style={{ fontSize: 13 }}>
                      <a href>Technology</a>
@@ -48,7 +49,7 @@ export default function Latest() {
 
          <div className="col-lg-6">
             <div className="position-relative mb-3">
-               <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=15" style={{ objectFit: 'cover' }} />
+               <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=15" style={{ objectFit: 'cover' }} alt="" />
                <div className="overlay position-relative bg-light">
                   <div className="mb-2" style={{ fontSize: 14 }}>
                      <a href>Technology</a>
@@ -60,7 +61,7 @@ export default function Latest() {
                </div>
             </div>
             <div className="d-flex mb-3">
-               <img src="https://unsplash.it/500/300/?image=16" style={{ width: 100, height: 100, objectFit: 'cover' }} />
+               <img src="https://unsplash.it/500/300/?image=16" style={{ width: 100, height: 100, objectFit: 'cover' }} alt="" />
                <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
                   <div className="mb-1" style={{ fontSize: 13 }}>
                      <a href>Technology</a>
@@ -71,7 +72,7 @@ export default function Latest() {
                </div>
             </div>
             <div className="d-flex mb-3">
-               <img src="https://unsplash.it/500/300/?image=17" style={{ width: 100, height: 100, objectFit: 'cover' }} />
+               <img src="https://unsplash.it/500/300/?image=17" style={{ width: 100, height: 100, objectFit: 'cover' }} alt="" />
                <div className="w-100 d-flex flex-column justify-content-center bg-light px-3" style={{ height: 100 }}>
                   <div className="mb-1" style={{ fontSize: 13 }}>
                      <a href>Technology</a>
