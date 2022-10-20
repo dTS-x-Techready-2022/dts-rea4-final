@@ -9,26 +9,28 @@ import Container from "@mui/material/Container";
 
 export default function Header() {
   return (
-    <Container maxWidth="xl">
-      <div className="header-wrap">
-        <img src={logo} alt="Logo" height={50} />
+    <div className="header-wrap">
+      <Container maxWidth="lg">
         <div className="header-menu-wrap">
-          <InputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-          <SearchIcon />
-          <MenuIcon />
+          <img src={logo} alt="Logo" height={50} />
+          <div>
+            <InputBase
+              placeholder="Search…"
+              inputProps={{ "aria-label": "search" }}
+            />
+            <SearchIcon />
+            <MenuIcon />
+          </div>
         </div>
-      </div>
-      <ul className="menu" >
-        <li>News</li>
-        <li>Sport</li>
-        <li>Sains</li>
-        <li>Tech</li>
-        <li>Entertainment</li>
-        <li>Life Style</li>
-      </ul>
-    </Container>
+        <ul className="menu">
+          <li>News</li>
+          <li>Sport</li>
+          <li>Sains</li>
+          <li>Tech</li>
+          <li>Entertainment</li>
+          <li>Life Style</li>
+        </ul>
+      </Container>
+    </div>
   );
 }

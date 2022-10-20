@@ -1,18 +1,19 @@
 .header-wrap {
     display: flex;
-    margin: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 6px 2px -2px rgb(0 0 0 / 0.2);
+    box-shadow: 0 6px 20px -2px rgb(0 0 0 / 0.2);
 }
 
 .header-menu-wrap {
-    justify-content: space-around;
-    display: block;
+    justify-content: space-between;
+    display: flex;
 }
 
 img {
-    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 .card {
@@ -26,6 +27,6 @@ img {
 }
 
 .menu li {
-    margin-right: 1rem;
+    padding-right: 1rem;
     font-weight: bold;
 }
