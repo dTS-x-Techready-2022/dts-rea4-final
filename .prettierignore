@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+public
+coverage
+*.json
+*.md
+*.html
+*.css
+*.scss
