@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContainerFluid from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -31,7 +31,7 @@ function NavbarMenu() {
           <div className="left">
             <img src={logo} alt="" />
             <div className="d-none d-sm-block">
-              <span>Homepage</span>
+              <span><Link to="/" className="navLink">Homepage</Link></span>
               <span>Series</span>
               <span>Movie</span>
               <span>Popular</span>
