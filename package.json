@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.12",
     "babel-plugin-module-resolver": "^4.1.0",
     "customize-cra": "^1.0.0",
