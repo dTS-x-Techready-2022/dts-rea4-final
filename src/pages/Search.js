@@ -15,7 +15,7 @@ const Search = () => {
     e.preventDefault();
     axios
       .get(
-        `https://api.rawg.io/api/games?key=5aaf45127762461a8cdd44c3b8c6ca0c&search=${searchTerm}`
+        `https://api.rawg.io/api/games?key=13ccf08eedbc418cbe4a4ac4a7dc751b&search=${searchTerm}`
       )
       .then((resp) => {
         setGameResults(resp.data.results);

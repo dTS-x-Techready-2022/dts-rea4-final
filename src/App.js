@@ -8,6 +8,8 @@ import Nav from "components/Nav";
 import HomePages from "pages/HomePages";
 import Search from "pages/Search";
 import LoginPage from "pages/LoginPage";
+import SignupPage from "pages/SignupPage";
+import FilterGames from "pages/FilterGames";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route exact path="/" element={<HomePages />} />
           <Route exact path="/search" element={<Search />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/filter" element={<FilterGames />} />
         </Routes>
       </div>
     </Router>

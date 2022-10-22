@@ -5,7 +5,7 @@ const Results = (props) => {
   return (
     <section className="py-8">
       <div className="container px-4 mx-auto">
-        <div className="flex flex-wrap -m-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-8 ">
           {props.gameResults.map((game) => (
             <GameCard game={game} key={game.id} />
           ))}
