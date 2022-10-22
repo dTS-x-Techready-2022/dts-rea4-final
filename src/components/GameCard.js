@@ -1,15 +1,15 @@
 const GameCard = ({ game }) => {
   return (
-    <div className="w-full lg:w-1/3 p-4">
+    <div className="group w-full p-4">
       <div className="p-4 bg-white/80 rounded">
-        <div className="relative h-40 w-full mb-4">
+        <div className="relative h-60 w-full mb-4">
           <img
             className="w-full h-full object-cover rounded"
             src={game.background_image}
             alt=""
           />
-          <span className="absolute top-0 right-0 py-1 px-2 mt-2 mr-2 bg-gray-700/80 rounded text-xs text-white">
-            {game.score}
+          <span className="absolute top-0 right-0 py-1 px-2 mt-2 mr-2 bg-gray-700/80 rounded border border-green-500 text-sm font-bold text-green-500">
+            {game.ratings_count}
           </span>
         </div>
         <div className="flex mb-6 justify-between items-center">
@@ -17,7 +17,7 @@ const GameCard = ({ game }) => {
             <h3 className="text-md font-medium justify-items-center mb-4">
               {game.name}
             </h3>
-            <div className="text-xs text-gray-500 space-x-2">
+            <div className="flex text-xs text-gray-500 space-x-2">
               {game.parent_platforms.slice(0, 3).map((plt) => (
                 <span
                   className="inline-block py-1 px-2 rounded bg-gray-500 text-xs text-gray-50"
@@ -39,7 +39,7 @@ const GameCard = ({ game }) => {
           <div className="flex mb-2 justify-between items-center">
             <h4 className="text-sm font-medium">Genre</h4>
             <div className=" space-x-2">
-              {game.genres.map((genre) => (
+              {game.genres.slice(0, 3).map((genre) => (
                 <span
                   key={genre.id}
                   className="inline-block py-1 px-2 rounded bg-gray-50 text-xs text-gray-500"
