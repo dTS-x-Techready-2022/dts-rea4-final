@@ -1,0 +1,81 @@
+::selection {
+  background: #03B4CC;
+}
+
+.article-div {
+  border: solid 1px;
+  box-shadow: 10px 7px 2px #B7B7B7;
+  border-radius: 4px;
+  width: 300px;
+  height: 550px;
+  padding: 20px;
+  margin: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-text {
+  text-align: left;
+  margin-top: -15px;
+}
+
+.show-more-button {
+  background-color: #03B4CC;
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 40px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.title-div {
+  overflow: hidden;
+  max-height: 130px;
+}
+
+.title {
+  font-size: 18px;
+  text-overflow: ellipsis;
+}
+
+.description-div {
+  overflow: hidden;
+  margin-top: -5px;
+}
+
+.description {
+  font-size: 15px;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.content-div {
+  max-height: 20px;
+  margin-top: -17px;
+}
+
+.content {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.link-point {
+  cursor: pointer;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  max-width: 300px;
+}
