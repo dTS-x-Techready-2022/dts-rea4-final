@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from '../components/Main'
 
 const Home = () => {
   return (
-    <h1 className='text-white'>Ini Home</h1>
+    <>
+      <Main />
+    </>
   )
 }
 
