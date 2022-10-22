@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { signingOut } from 'utils/firebase/signout';
+import { LoggedContext } from '../components/LoggedProvider';
 
 const Nav = () => {
+    const navigate = useNavigate();
+    const { isLoggedin, setIsLoggedin } = useContext(LoggedContext);
+    console.log(isLoggedin);
+    const signOut = async () => {
+        // localStorage.removeItem("access_token");
+        const loggedOut = await signingOut();
+        if (!loggedOut) {
+            navigate('/login');
+        }
+        setIsLoggedin(false);
+    };
+
     return (
         <nav
             className=" mt-0 fixed w-full z-10 top-0  flex justify-between items-center h-16 bg-black text-white shadow-sm font-mono"
@@ -27,17 +42,36 @@ const Nav = () => {
                 </svg>
             </div>
             <div className="pr-8 md:block hidden">
-                <Link to="/login" className="p-4">
+                <Link
+                    to="/login"
+                    className="p-4"
+                    style={{ display: isLoggedin ? 'none' : 'inline' }}
+                >
                     Login
                 </Link>
-                <Link to="/signup" className="p-4">
+                <Link
+                    to="/signup"
+                    className="p-4"
+                    style={{ display: isLoggedin ? 'none' : 'inline' }}
+                >
                     Signup
                 </Link>
-                <Link to="/search" className="p-4">
+                <Link
+                    to="/search"
+                    className="p-4"
+                    style={{ display: isLoggedin ? 'inline' : 'none' }}
+                >
                     Search games
                 </Link>
-                <Link to="/" className="p-4">
+                <Link to="#" className="p-4">
                     About Us
+                </Link>
+                <Link
+                    to="/login"
+                    onClick={signOut}
+                    style={{ display: isLoggedin ? 'inline' : 'none' }}
+                >
+                    Signout
                 </Link>
             </div>
         </nav>

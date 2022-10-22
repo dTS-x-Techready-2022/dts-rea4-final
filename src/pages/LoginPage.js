@@ -1,19 +1,21 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthProvider';
+import { LoggedContext } from '../components/LoggedProvider';
 import { signingIn } from '../utils/firebase/signin';
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const { setUser } = useContext(AuthContext);
+    const { isLoggedin, setIsLoggedin } = useContext(LoggedContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const signIn = async () => {
         const signedIn = await signingIn(email, password);
         if (!signedIn.message) {
-            console.log(signedIn.accessToken);
             setUser(signedIn.accessToken);
+            setIsLoggedin(true);
             navigate('/');
         } else {
             console.log(signedIn.message);
