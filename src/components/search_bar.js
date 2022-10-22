@@ -1,14 +1,14 @@
 const SearchBar = ({ action, change, value }) => {
   return (
-    <form class="flex items-center" onSubmit={action}>
-      <label for="voice-search" class="sr-only">
+    <form className="flex items-center" onSubmit={action}>
+      <label for="voice-search" className="sr-only">
         Search
       </label>
-      <div class="relative w-full">
-        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+      <div className="relative w-full">
+        <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
-            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            className="w-5 h-5 text-gray-500 dark:text-gray-400"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -23,20 +23,19 @@ const SearchBar = ({ action, change, value }) => {
         <input
           type="text"
           id="voice-search"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-gray-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Search a games you want to know"
-          required=""
+          className="bg-gray-600/80 hover:bg-gray-100 focus:bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:border-blue-500 block w-full pl-10 p-2.5 "
+          placeholder="Search 812,000+ games"
           onChange={change}
           value={value}
         />
       </div>
       <button
         type="submit"
-        class="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-gray-700 border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+        className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-gray-700 border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
       >
         <svg
           aria-hidden="true"
-          class="mr-2 -ml-1 w-5 h-5"
+          className="mr-2 -ml-1 w-5 h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
