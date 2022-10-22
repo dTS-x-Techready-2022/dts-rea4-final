@@ -12,7 +12,7 @@ const HomePages = () => {
   const fetchGames = () => {
     fetch(
       "https://api.rawg.io/api/games" +
-        "?key=5aaf45127762461a8cdd44c3b8c6ca0c" +
+        "?key=13ccf08eedbc418cbe4a4ac4a7dc751b" +
         "&page_size=9"
     )
       .then((resp) => resp.json())
