@@ -1,7 +1,9 @@
 import React,{ useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+
 import Header from "./components/Header";
+import Footer from './components/Footer';
 
 function App() {
   
@@ -34,6 +36,16 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <h1>CONTENT</h1>
+      <Footer />
     </div>
   );
 }
