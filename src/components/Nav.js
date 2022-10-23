@@ -1,21 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { signingOut } from 'utils/firebase/signout';
 import { LoggedContext } from '../components/LoggedProvider';
 
 const Nav = () => {
     const navigate = useNavigate();
     const { isLoggedin, setIsLoggedin } = useContext(LoggedContext);
-    console.log(isLoggedin);
-    const signOut = async () => {
-        // localStorage.removeItem("access_token");
-        const loggedOut = await signingOut();
-        if (!loggedOut) {
-            navigate('/login');
-        }
-        setIsLoggedin(false);
-    };
+    // console.log(isLoggedin);
+    // const signOut = async () => {
+    //     // localStorage.removeItem("access_token");
+    //     const loggedOut = await signingOut();
+    //     if (!loggedOut) {
+    //         navigate('/login');
+    //     }
+    //     setIsLoggedin(false);
+    // };
 
     return (
         <nav
@@ -68,7 +67,6 @@ const Nav = () => {
                 </Link>
                 <Link
                     to="/login"
-                    onClick={signOut}
                     style={{ display: isLoggedin ? 'inline' : 'none' }}
                 >
                     Signout

@@ -10,6 +10,7 @@ import Search from 'pages/Search';
 import LoginPage from 'pages/LoginPage';
 import SignupPage from 'pages/SignupPage';
 import FilterGames from 'pages/FilterGames';
+import Reset from 'pages/Reset';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<SignupPage />} />
                     <Route path="/filter" element={<FilterGames />} />
+                    <Route path="/reset" element={<Reset />} />
                 </Routes>
             </div>
         </Router>

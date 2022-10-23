@@ -1,34 +1,50 @@
-import { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../components/AuthProvider';
-import { signingUp } from '../utils/firebase/signup';
-import { signingIn } from '../utils/firebase/signin';
-
+import {
+    auth,
+    registerWithEmailAndPassword,
+    signInWithGoogle,
+} from '../components/firebase';
 const SignupPage = () => {
-    const { setUser } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [user, loading, error] = useAuthState(auth);
     const signUp = async () => {
-        console.log(email, password);
-        const response = await signingUp(email, password);
-        console.log(response);
-        if (!response.message) {
-            setUser(response.accessToken);
-            // signingIn
-            const signedIn = await signingIn(email, password);
-            if (!signedIn.message) {
-                navigate('/');
-            }
+        if (!name) alert('Please enter name');
+        const res = await registerWithEmailAndPassword(name, email, password);
+        if (res === 'Firebase: Error (auth/email-already-in-use).') {
+            console.log('err');
         } else {
-            console.log('error');
+            console.log('sukses sign up');
         }
     };
+    useEffect(() => {
+        if (loading) return;
+        if (user) navigate('/signup');
+    }, [user, loading]);
+
+    // const signUp = async () => {
+    //     const response = await signingUp(email, password);
+    //     if (!response.message) {
+    //         setUser(response.accessToken);
+    //         // signingIn
+    //         const signedIn = await signingIn(email, password);
+    //         if (!signedIn.message) {
+    //             navigate('/');
+    //         }
+    //     } else {
+    //         console.log('error');
+    //     }
+    // };
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
+        if (id === 'name') {
+            setName(value);
+        }
         if (id === 'email') {
             setEmail(value);
         }
@@ -57,6 +73,18 @@ const SignupPage = () => {
                         Please sign up
                     </p>
                     <form>
+                        <label className="block mb-4">
+                            <p className="mb-2 text-white font-semibold leading-normal">
+                                Full Name
+                            </p>
+                            <input
+                                onChange={(e) => handleInputChange(e)}
+                                className="px-4 py-3.5 w-full text-gray-400 font-medium placeholder-gray-400 bg-transparent outline-none border border-gray-800 rounded-lg focus:ring focus:ring-indigo-300"
+                                id="name"
+                                type="text"
+                                placeholder="Full Name"
+                            />
+                        </label>
                         <label className="block mb-4">
                             <p className="mb-2 text-white font-semibold leading-normal">
                                 Email Address

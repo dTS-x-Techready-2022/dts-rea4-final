@@ -1,26 +1,25 @@
-import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../components/AuthProvider';
-import { LoggedContext } from '../components/LoggedProvider';
-import { signingIn } from '../utils/firebase/signin';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+    auth,
+    logInWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signInWithGoogle,
+} from '../components/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const LoginPage = () => {
-    const navigate = useNavigate();
-    const { setUser } = useContext(AuthContext);
-    const { isLoggedin, setIsLoggedin } = useContext(LoggedContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
 
-    const signIn = async () => {
-        const signedIn = await signingIn(email, password);
-        if (!signedIn.message) {
-            setUser(signedIn.accessToken);
-            setIsLoggedin(true);
-            navigate('/');
-        } else {
-            console.log(signedIn.message);
+    useEffect(() => {
+        if (loading) {
+            return;
         }
-    };
+        if (user) navigate('/login');
+    }, [user, loading]);
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -74,6 +73,7 @@ const LoginPage = () => {
                                 id="password"
                                 type="password"
                                 placeholder="********"
+                                autocomplete="off"
                             />
                         </label>
                         <div className="flex flex-wrap justify-between -m-2 mb-4">
@@ -94,18 +94,35 @@ const LoginPage = () => {
                                 </div>
                             </div>
                             <div className="w-auto p-2">
-                                <a className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+                                <a
+                                    href="reset"
+                                    className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+                                >
                                     Forgot Password?
                                 </a>
                             </div>
                         </div>
                         <button
-                            onClick={signIn}
+                            id="signin"
+                            onClick={() =>
+                                logInWithEmailAndPassword(email, password)
+                            }
                             className="py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
                             type="button"
                         >
                             Sign In
                         </button>
+                        <button
+                            id="signinwithgoogle"
+                            onClick={signInWithGoogle}
+                            className="py-4 px-9 w-full text-white font-semibold border border-indigo-700 rounded-xl shadow-4xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
+                            type="button"
+                        >
+                            Sign In with Google
+                        </button>
+                        <div>
+                            <Link to="/reset">Forgot Password</Link>
+                        </div>
                     </form>
                 </div>
                 <p className="text-white text-center font-medium">
