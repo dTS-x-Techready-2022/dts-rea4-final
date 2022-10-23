@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.news {
+  max-width: 300px;
+}
+
+.news h4 {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.news-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
