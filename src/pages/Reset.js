@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { auth, sendPasswordReset } from '../components/firebase';
-// import './Reset.css';
+
 function Reset() {
     const [email, setEmail] = useState('');
     const [user, loading, error] = useAuthState(auth);

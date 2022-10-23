@@ -44,10 +44,10 @@ const signInWithGoogle = async () => {
         }
         return user;
     } catch (err) {
-        console.error(err);
         alert(err.message);
     }
 };
+
 const logInWithEmailAndPassword = async (email, password) => {
     try {
         const res = await signInWithEmailAndPassword(auth, email, password);
@@ -64,7 +64,6 @@ const logInWithEmailAndPassword = async (email, password) => {
         }
         return user;
     } catch (err) {
-        console.error(err);
         alert(err.message);
     }
 };
@@ -72,18 +71,15 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
-        console.log(res);
         const res2 = await addDoc(collection(db, 'users'), {
             uid: user.uid,
             name,
             authProvider: 'local',
             email,
         });
-        console.log(res2);
         return res;
     } catch (err) {
         return err.message;
-        // console.error(err.message);
     }
 };
 const sendPasswordReset = async (email) => {
@@ -92,7 +88,6 @@ const sendPasswordReset = async (email) => {
         await sendPasswordResetEmail(auth, email);
         alert('Password reset link sent!');
     } catch (err) {
-        console.error(err);
         alert(err.message);
     }
 };

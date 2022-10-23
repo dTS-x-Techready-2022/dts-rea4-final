@@ -1,12 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { LoggedContext } from '../components/LoggedProvider';
 
 const Nav = () => {
     const navigate = useNavigate();
-    const { isLoggedin, setIsLoggedin } = useContext(LoggedContext);
-    // console.log(isLoggedin);
     // const signOut = async () => {
     //     // localStorage.removeItem("access_token");
     //     const loggedOut = await signingOut();
@@ -44,30 +41,30 @@ const Nav = () => {
                 <Link
                     to="/login"
                     className="p-4"
-                    style={{ display: isLoggedin ? 'none' : 'inline' }}
+                    // style={{ display: isLoggedin ? 'none' : 'inline' }}
                 >
                     Login
                 </Link>
                 <Link
                     to="/signup"
                     className="p-4"
-                    style={{ display: isLoggedin ? 'none' : 'inline' }}
+                    // style={{ display: isLoggedin ? 'none' : 'inline' }}
                 >
                     Signup
                 </Link>
                 <Link
                     to="/search"
                     className="p-4"
-                    style={{ display: isLoggedin ? 'inline' : 'none' }}
+                    // style={{ display: isLoggedin ? 'inline' : 'none' }}
                 >
                     Search games
                 </Link>
-                <Link to="#" className="p-4">
+                <Link to="/about" className="p-4">
                     About Us
                 </Link>
                 <Link
                     to="/login"
-                    style={{ display: isLoggedin ? 'inline' : 'none' }}
+                    // style={{ display: isLoggedin ? 'inline' : 'none' }}
                 >
                     Signout
                 </Link>
