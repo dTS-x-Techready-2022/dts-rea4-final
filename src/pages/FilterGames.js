@@ -70,8 +70,6 @@ export default function FilterGames() {
     ordering: "",
   });
 
-  console.log(queryParameters);
-
   const fetchGames = () => {
     axios
       .get("https://api.rawg.io/api/games", {
@@ -91,7 +89,6 @@ export default function FilterGames() {
         setTotalGames(resp.data.count);
       })
       .catch((err) => {
-        console.log(err);
       });
   };
 
