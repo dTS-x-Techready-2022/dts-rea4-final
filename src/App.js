@@ -4,12 +4,11 @@ import "./App.css";
 
 import Header from "./components/Header";
 import Footer from './components/Footer';
+import News from './components/News';
 
 function App() {
   
   const [data, setData] = useState();
-  const [title, setTitle] = useState('');
-  
   
     // https://newsapi.org/v2/top-headlines?country=us&apiKey=e10c6e1cb638440c9fc6184d93c1d0af
     // https://content.guardianapis.com/search?api-key=d93773f5-95a1-4d37-8571-a46550159fed
@@ -23,28 +22,12 @@ function App() {
       .catch((err) => console.log('show error', err));
   }, []);
 
-  const showArticles = data.map((news) => (
-    <div key={news.url}>
-      {news}
-    </div>
-    ));
-  
-  console.log('data', showArticles);
-
-  console.log('data', data);
+   console.log('data', data);
 
   return (
     <div className="App">
       <Header />
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
-      <h1>CONTENT</h1>
+      <News data={data}/>
       <Footer />
     </div>
   );
