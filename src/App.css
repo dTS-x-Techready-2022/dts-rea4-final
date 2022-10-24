@@ -37,17 +37,31 @@
   }
 }
 
-.news {
-  max-width: 300px;
+.news-card {
+  margin: 1rem 0;
 }
 
-.news h4 {
-  font-style: italic;
-  font-weight: 400;
-}
-
-.author {
+.news-title {
   font-weight: bold;
+}
+
+.news-author {
+  font-weight: bold;
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.news-content {
+  display: contents;
+  align-items: baseline;
+}
+
+.news-source {
+  font-style: italic;
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .news-wrap {

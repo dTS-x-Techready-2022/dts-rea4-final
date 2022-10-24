@@ -6,9 +6,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import News from "./components/News";
 
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2";
-
 function App() {
   const [data, setData] = useState();
 
