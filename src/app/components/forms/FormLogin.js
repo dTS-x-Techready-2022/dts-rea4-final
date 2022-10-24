@@ -38,7 +38,6 @@ const FormLogin = () => {
          .unwrap()
          .then(() => {
             navigate("/profile");
-            window.location.reload();
          })
          .catch(() => {
             setLoading(false);

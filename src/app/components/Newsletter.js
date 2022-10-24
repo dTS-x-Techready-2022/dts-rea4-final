@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Newsletter() {
+
+   const [value, setValue] = useState("");
+
+   const handleSubmit = (event, value) => {
+      event.preventDefault()
+      if (value) {
+         toast.success("Your email " + value + " has been saved!")
+         setValue("");
+      }
+   }
+
+
    return (
       <>
          <div className="mb-3 pb-3">
@@ -11,18 +25,22 @@ export default function Newsletter() {
                <h3 className="m-0">Newsletter</h3>
             </div>
             <div className="bg-light text-center p-4 mb-3">
-               <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-               <div className="input-group" style={{ width: '100%' }}>
-                  <input type="text" className="form-control form-control-lg" placeholder="Your Email" />
-                  <div className="input-group-append">
-                     <button className="btn btn-red">Sign Up</button>
+               <p>Enter your email address to get latest news and amazing promotions.</p>
+               <form>
+                  <div className="input-group" style={{ width: '100%' }}>
+                     <input type="email" className="form-control form-control-lg" placeholder="Your Email" required
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                     />
+                     <div className="input-group-append">
+                        <button className="btn btn-red" onClick={(event) => handleSubmit(event, value)}>Save Email</button>
+                     </div>
                   </div>
-               </div>
-               <small>Sit eirmod nonumy kasd eirmod</small>
+               </form>
             </div>
          </div>
 
-
+         <ToastContainer />
       </>
    )
 }

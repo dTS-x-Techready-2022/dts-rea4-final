@@ -6,6 +6,7 @@ label {
 #root {
   position: relative;
   padding-bottom: 120px;
+  min-height: 100vh;
 }
 
 .login-form,
