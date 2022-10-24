@@ -1,7 +1,7 @@
 import { legacy_createStore as createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { techNewsReducer } from "./reducer";
+import { newsReducer } from "./reducer";
 
-const store = createStore(techNewsReducer, applyMiddleware(thunk));
+const store = createStore(newsReducer, applyMiddleware(thunk));
 
 export default store;
