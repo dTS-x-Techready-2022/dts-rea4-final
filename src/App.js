@@ -5,6 +5,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Account from "./pages/Account";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Movie from "./pages/Movie";
 import SignUp from "./pages/SignUp";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/account" element={<Account />}/>
+          <Route path="/detail/:id" element={<Movie/>}/>
         </Routes>
         <Footer />
       </AuthContextProvider>
