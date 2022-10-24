@@ -8,7 +8,7 @@ import Categories from './Categories';
 
 export default function Hero() {
    return (
-      <Row className='py-4'>
+      <Row className='pt-3 pb-4'>
          <div className="col-lg-8 mb-3">
             <OwlCarousel className="position-relative" {...options1}>
                <div className="position-relative overflow-hidden" style={{ height: 435 }}>

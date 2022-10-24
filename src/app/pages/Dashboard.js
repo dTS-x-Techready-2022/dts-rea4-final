@@ -19,7 +19,7 @@ const Dashboard = () => {
          <div className="row">
             <div className="col-12">
                <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                  <h3 className="m-0">You have seen news : 0</h3>
+                  <h3 className="m-0">Total Favorite News : 0</h3>
                </div>
             </div>
             <div className="col-lg-3 col-6">

@@ -3,6 +3,11 @@ label {
   margin-top: 10px;
 }
 
+#root {
+  position: relative;
+  padding-bottom: 120px;
+}
+
 .login-form,
 .signup-form {
   max-width: 350px;
