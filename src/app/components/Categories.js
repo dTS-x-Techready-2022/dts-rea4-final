@@ -15,7 +15,7 @@ export default function Categories() {
          </div>
          <div className="position-relative overflow-hidden mb-3" style={{ height: 80 }}>
             <img className="img-fluid w-100 h-100" src="https://unsplash.it/300/300/?image=8" style={{ objectFit: 'cover' }} alt="" />
-            <a href className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
+            <a href className="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none ">
                Technology
             </a>
          </div>

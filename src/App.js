@@ -5,7 +5,7 @@ import Profile from "./app/pages/Profile";
 import Home from "./app/pages/Home";
 import Header from "./app/components/Header";
 import Footer from "./app/components/footer";
-import ArticleList from "./app/components/ArticleList/ArticleList";
+
 import { Container } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -34,7 +34,7 @@ const App = () => {
                   </Routes>
                </div>
             </Container>
-            <ArticleList />
+            
             <Footer />
          </Router>
       </>

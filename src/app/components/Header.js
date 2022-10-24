@@ -84,15 +84,7 @@ function Header() {
                      }
                   </Nav>
 
-                  <Form className="d-flex ml-auto">
-                     <Form.Control
-                        type="search"
-                        placeholder="Search"
-                        className="me-2 search-width"
-                        aria-label="Search"
-                     />
-                     <Button variant="outline-success"><i className="fa fa-search" /></Button>
-                  </Form>
+                
                </Navbar.Collapse>
             </Container>
          </Navbar>

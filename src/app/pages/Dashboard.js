@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import ArticleList from "../components/ArticleList/ArticleList";
 
 const Dashboard = () => {
    const { user: currentUser } = useSelector((state) => state.auth);
@@ -11,17 +12,14 @@ const Dashboard = () => {
 
    return (
       <>
+      
          <div className="jumbotron dashboard mt-4" style={{ backgroundImage: `url('${process.env.PUBLIC_URL}/jumbo-dashboard.jpg')` }}>
             <h3>
                <strong className="text-white">Dashboard</strong>
             </h3>
          </div>
          <div className="row">
-            <div className="col-12">
-               <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                  <h3 className="m-0">You have seen news : 0</h3>
-               </div>
-            </div>
+            <ArticleList />
             <div className="col-lg-3 col-6">
                <div className="position-relative mb-4">
                   <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
@@ -75,6 +73,7 @@ const Dashboard = () => {
                </div>
             </div>
          </div>
+         
       </>
    );
 };
