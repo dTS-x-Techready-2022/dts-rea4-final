@@ -11,7 +11,7 @@ import { CardActionArea } from "@mui/material";
 function NewsArticles(data) {
   const showArticle = data.data;
 
-  console.log("news article", showArticle.url);
+  // console.log("news article", showArticle.url);
 
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -26,7 +26,7 @@ function NewsArticles(data) {
           component="img"
           height="140"
           image={showArticle.urlToImage}
-          alt="no image"
+          alt="No image.."
         />
         <CardContent>
           <Typography
@@ -55,8 +55,7 @@ function NewsArticles(data) {
             className="news-source"
           >
             <br />
-            {/* Sumber : {showArticle.source.name}<br />
-            {showArticle.url} */}
+            Sumber : {showArticle.source.name}<br />
           </Typography>
         </CardContent>
       </CardActionArea>

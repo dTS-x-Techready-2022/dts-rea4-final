@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Playfair Display', serif;
 }
 
 .App-logo {
@@ -53,8 +54,9 @@
 }
 
 .news-content {
-  display: contents;
-  align-items: baseline;
+  display: flex;
+  justify-content: flex-start;
+  font-style: italic;
 }
 
 .news-source {
@@ -62,9 +64,16 @@
   font-size: 10px;
   display: flex;
   justify-content: flex-end;
+  font-weight: bold;
 }
 
 .news-wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.skeleton {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
 }
