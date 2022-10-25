@@ -28,11 +28,19 @@ https://newsapi.org/
 
 ## Link live app
 
---
+https://dts-rea4c.web.app/
+
+- API yang digunakan tidak dapat muncul pada app yang sudah dideploy karena ada batasan limit dari penyedia API (CORS ISSUE)
+
+![corsissue](corsissue.png)
 
 ## Link GITHUB
 
 https://github.com/reinhardjk14/dts4c-18-final
+
+## Demo
+
+![record](record.gif)
 
 ## Details
 
