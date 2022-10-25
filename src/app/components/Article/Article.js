@@ -17,7 +17,7 @@ const Article = ({article}) => {
   }
 
   return (
-    <div className="article-div">
+    <div className="article-div" onClick={() => handleClick(article.url)}>
 
       <div className="author-div">
         <h5 className="author-text">{article.source.name}</h5>
@@ -42,7 +42,7 @@ const Article = ({article}) => {
         </div> : ''
       }
 
-      <div className="content-div">
+      <div className="content-div" >
         {article.content ?
           <p className="content">
             {truncateContent(article.content)}

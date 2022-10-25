@@ -2,15 +2,12 @@
 
 TODO :
 
-[ ] Fetch news API <br>
 [ ] Page detail news <br>
-[ ] Search news <br>
 [ ] Newsletter fake input <br>
-[ ] Dashboard - Count seen news <br>
 [ ] Dashboard - Show list seen news <br>
-[ ] Categories - Optional <br>
 
 Features :
+![](https://github.com/rendyproklamanta/DTS4C-10-Final.git/public/Feature.gif)
 
 - Register Function
 - Login Function
@@ -18,6 +15,10 @@ Features :
 - Search News
 - Dashboard Page (Logged In User) > Content : List of Seen News
 - Firebase Integration
+- Categories - Optional
+- Dashboard - Count seen news
+- Search news
+- Fetch news API
 
 Depedencies :
 
@@ -26,4 +27,4 @@ Depedencies :
 - OwlCarousel
 - FontAwesome
 - Axios
-- API Reference : https://www.thenewsapi.com
+- API Reference : https://newsapi.org

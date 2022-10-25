@@ -12,6 +12,8 @@ const EmptyView = () =>
 const subCategories = ['business', 'technology', 'entertainment', 'sports'
                         ];
 
+
+
 class ArticleList extends Component {
   constructor(props) {
     super(props);
@@ -19,10 +21,14 @@ class ArticleList extends Component {
       error: null,
       isLoaded: false,
       articles: [],
-      query: ''
+      query: '',
+      count: 0
     };
   }
 
+handleIncrement = () => {
+  this.setState({ count: this.state.count + 1});
+};
 
   handleSubCategoryClick(category) {
     let url = 'https://newsapi.org/v2/top-headlines?category=' + category +
@@ -80,6 +86,11 @@ class ArticleList extends Component {
     } else {
       return(
         <div>
+            <div className="col-12">
+               <div className="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+                  <h3 className="m-0">You have seen news : <span>{this.state.count}</span></h3>
+               </div>
+            </div>
           <div className="search-wrap">
             <div className="search-bar">
               <input placeholder="Search" aria-label="Search" type="search" class="me-2 search-width form-control" wtx-context="E620CB70-B7B3-4963-8330-D647B2A2F863"
@@ -100,7 +111,8 @@ class ArticleList extends Component {
             {subCategories.map((subCategory, index) =>
               <div key={index} className="individual-subcategory"
                    onClick={() => this.handleSubCategoryClick(subCategory)}>
-                <button className="subcategory-pill">{subCategory}</button>
+                <button 
+                className="subcategory-pill">{subCategory}</button>
               </div>
             )}
           </div>
@@ -110,7 +122,7 @@ class ArticleList extends Component {
             <h4>{articles.length} RESULTS FOUND</h4>
           }
           {
-            articles.length ? <div className="article-list-div">
+            articles.length ? <div className="article-list-div" onClick={this.handleIncrement}>
               {articles.map((article, i) => (
                 article.author ?
                 <Article article={article} key={i}/> : null

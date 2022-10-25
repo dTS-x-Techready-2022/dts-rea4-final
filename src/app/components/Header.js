@@ -36,24 +36,6 @@ function Header() {
 
    return (
       <>
-         <Container fluid className='bg-light'>
-            <Row className="align-items-center py-3 px-lg-5">
-               <div className="col-lg-5">
-                  <a href className="navbar-brand d-none d-lg-block">
-                     <img src="/banner.jpg" width={'100%'} height={50} alt="" />
-                  </a>
-               </div>
-               <div className="col-lg-5">
-                  <a href className="navbar-brand d-none d-lg-block">
-                     <img src="/banner.jpg" width={'100%'} height={50} alt="" />
-                  </a>
-               </div>
-               <div className="col-lg-2 text-center text-lg-left">
-                  {date}
-               </div>
-            </Row>
-         </Container>
-
          <Navbar bg="light" expand="lg" className='py-2 px-lg-5'>
             <Container fluid>
                <Navbar.Brand href="/">
@@ -84,16 +66,11 @@ function Header() {
                      }
                   </Nav>
 
-                  <Form className="d-flex ml-auto">
-                     <Form.Control
-                        type="search"
-                        placeholder="Search"
-                        className="me-2 search-width"
-                        aria-label="Search"
-                     />
-                     <Button variant="outline-success"><i className="fa fa-search" /></Button>
-                  </Form>
+                
                </Navbar.Collapse>
+               <div className="col-lg-2 text-center text-lg-left">
+                  {date}
+               </div>
             </Container>
          </Navbar>
       </>
