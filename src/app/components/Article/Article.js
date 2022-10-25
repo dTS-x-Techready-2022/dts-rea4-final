@@ -1,60 +1,26 @@
-import React, { useCallback } from 'react';
-import './Article.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import IconFavorite from '../IconFavorite'
 
-const MoreLink = ({ url }) =>
-  <a href={url} className="more-link">More</a>
+export default function Article({ article, classes }) {
 
-const Article = ({article}) => {
-
-  const handleClick = useCallback(url => {
-    let win = window.open(url, '_blank');
-    win.focus();
-  });
-
-  function truncateContent(content) {
-    let indexToTruncateFrom = content.lastIndexOf('[');
-    return content.substring(0, indexToTruncateFrom);
-  }
-
-  return (
-    <div className="article-div" onClick={() => handleClick(article.url)}>
-
-      <div className="author-div">
-        <h5 className="author-text">{article.source.name}</h5>
-      </div>
-
-      <div className="image-div">
-        <img alt={article.title} src={article.urlToImage}
-             className="link-point article-image"
-             onClick={() => handleClick(article.url)}
-        />
-      </div>
-
-      <div className="title-div">
-        <h1 className="link-point title" onClick={() => handleClick(article.url)}>
-          {article.title}
-        </h1>
-      </div>
-
-      {article.description ?
-        <div className="description-div">
-          <p className="description">{article.description}</p>
-        </div> : ''
-      }
-
-      <div className="content-div" >
-        {article.content ?
-          <p className="content">
-            {truncateContent(article.content)}
-            <MoreLink url={article.url} />
-          </p>
-        : <button className="show-more-button" onClick={() => handleClick(article.url)}>
-            <i className="fa fa-ellipsis-h"></i>
-          </button>}
-      </div>
-
-    </div>
-  );
+   return (
+      <div className={classes}>
+         <div className="position-relative mb-3">
+            <IconFavorite />
+            <img className="img-fluid w-100" src={article.urlToImage} style={{ objectFit: 'cover', height: 230 }} alt="" />
+            <div className="overlay position-relative bg-light">
+               <div className="mb-2" style={{ fontSize: 14 }}>
+                  <strong>{article.source.name}</strong>
+                  {/* <a href>Technology</a>
+                  <span className="px-1">/</span>
+                  <span>January 01, 2045</span> */}
+               </div>
+               <Link to="/detail" className="h6 text-break text-break-line-3">{article.title}</Link>
+               {/* <a className="h5 text-break text-break-line-2 " href={article.url}>{article.title}</a> */}
+               <p className="m-0 text-break text-break-line-3">{article.content}</p>
+            </div>
+         </div>
+      </div >
+   )
 }
-
-export default Article;

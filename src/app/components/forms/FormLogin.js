@@ -38,7 +38,6 @@ const FormLogin = () => {
          .unwrap()
          .then(() => {
             navigate("/profile");
-            window.location.reload();
          })
          .catch(() => {
             setLoading(false);
@@ -115,7 +114,7 @@ const FormLogin = () => {
                )}
             </Formik>
 
-            <small>Email :  test@test.com</small>
+            <small>Email : test@test.com</small>
             <small>Password : 123456</small>
 
          </div>

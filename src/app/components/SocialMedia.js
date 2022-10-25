@@ -7,19 +7,19 @@ export default function SocialMedia() {
             <h3 className="m-0">Follow Us</h3>
          </div>
          <div className="d-flex mb-3">
-            <a href className="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style={{ background: '#39569E' }}>
-               <small className="fa fa-facebook-f mr-2" /><small>12,345 Fans</small>
+            <a href="https://facebook.com" target="_blank" className="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style={{ background: '#39569E' }}>
+               <small className="fa fa-facebook-f mr-2" /><small>Facebook</small>
             </a>
-            <a href className="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style={{ background: '#52AAF4' }}>
-               <small className="fa fa-twitter mr-2" /><small>12,345 Followers</small>
+            <a href="https://twitter.com" target="_blank" className="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style={{ background: '#52AAF4' }}>
+               <small className="fa fa-twitter mr-2" /><small>Twitter</small>
             </a>
          </div>
          <div className="d-flex mb-3">
-            <a href className="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style={{ background: '#C8359D' }}>
-               <small className="fa fa-instagram mr-2" /><small>12,345 Followers</small>
+            <a href="https://instagram.com" target="_blank" className="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style={{ background: '#C8359D' }}>
+               <small className="fa fa-instagram mr-2" /><small>Instagram</small>
             </a>
-            <a href className="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style={{ background: '#DC472E' }}>
-               <small className="fa fa-youtube mr-2" /><small>12,345 Subscribers</small>
+            <a href="https://youtube.com" target="_blank" className="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style={{ background: '#DC472E' }}>
+               <small className="fa fa-youtube mr-2" /><small>Youtube</small>
             </a>
          </div>
       </div>

@@ -3,6 +3,12 @@ label {
   margin-top: 10px;
 }
 
+#root {
+  position: relative;
+  padding-bottom: 120px;
+  min-height: 100vh;
+}
+
 .login-form,
 .signup-form {
   max-width: 350px;
