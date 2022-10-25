@@ -1,6 +1,76 @@
+import {
+  deleteDoc,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+} from "firebase/firestore";
+import { db, auth } from "components/firebase";
+import { useState, useEffect } from "react";
+
 const GameCard = ({ game }) => {
+  const [isWishlisted, setIsWishlisted] = useState(false);
+
+  useEffect(() => {
+    const checkWhitelist = async () => {
+      const q = query(
+        collection(db, "wishlist"),
+        where("userid", "==", auth.currentUser.uid),
+        where("gameid", "==", game.id)
+      );
+      const docs = await getDocs(q);
+      if (docs.docs.length > 0) {
+        setIsWishlisted(true);
+      } else {
+        setIsWishlisted(false);
+      }
+    };
+    checkWhitelist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const addToWishlist = async () => {
+    // https://firebase.google.com/docs/firestore/query-data/queries
+    if (auth.currentUser === null) {
+      alert("You must be logged in to add " + game.name + " to your wishlist");
+    } else {
+      await addDoc(collection(db, "wishlist"), {
+        userid: auth.currentUser.uid,
+        gameid: game.id,
+        game: game.name,
+        image: game.background_image,
+        rating: game.ratings_count,
+        released: game.released,
+        platform: game.platforms,
+        genre: game.genres,
+        store: game.stores,
+      });
+
+      // alert with game.name
+
+      setIsWishlisted(true);
+      alert(game.name + " has been added to your wishlist");
+    }
+  };
+
+  const removeFromWishlist = async () => {
+    // https://firebase.google.com/docs/firestore/manage-data/delete-data
+    const q = query(
+      collection(db, "wishlist"),
+      where("gameid", "==", game.id),
+      where("userid", "==", auth.currentUser.uid)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      deleteDoc(doc.ref);
+    });
+    setIsWishlisted(false);
+    alert(game.name + " has been removed from your wishlist");
+  };
+
   return (
-    <div className="group w-full p-4">
+    <div className="group w-full p-4" key={game.id}>
       <div className="p-4 bg-white/80 rounded">
         <div className="relative h-60 w-full mb-4">
           <img
@@ -71,9 +141,21 @@ const GameCard = ({ game }) => {
           <></>
         )}
         <div className="flex items-ceenter justify-between border-t border-gray-50 pt-4">
-          <button className="py-2 px-3 bg-gray-900 hover:bg-gray-800 rounded text-xs text-white transition duration-200">
-            See Details
-          </button>
+          {isWishlisted ? (
+            <button
+              className="py-2 px-3 bg-red-900 hover:bg-red-800 rounded text-xs text-white transition duration-200"
+              onClick={removeFromWishlist}
+            >
+              Remove from wishlist
+            </button>
+          ) : (
+            <button
+              className="py-2 px-3 bg-gray-900 hover:bg-gray-700 rounded text-xs text-white transition duration-200"
+              onClick={addToWishlist}
+            >
+              Add to wishlist
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,27 +1,19 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import axios from "axios";
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/20/solid";
+import { FunnelIcon, MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import Results from "components/Results";
 
-const sortOptions = [
-  { name: "Most Popular", value: "rating" },
-  { name: "Newest Added", value: "added" },
-  { name: "Name", value: "name" },
-  { name: "New released", value: "released" },
-];
-const subCategories = [
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "components/firebase";
+
+const listPlatforms = [
   { name: "PC", value: 4 },
   { name: "PlayStation 5", value: 187 },
   { name: "PlayStation 4", value: 18 },
-  { name: "Xbox Series S/X", value: 186 },
+  { name: "Xbox", value: 186 },
   { name: "Xbox One", value: 1 },
 ];
 const filters = [
@@ -52,11 +44,14 @@ const filters = [
   },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function FilterGames() {
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) return;
+    if (!user) navigate("/login");
+  }, [user, loading]);
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [games, setGames] = useState([]);
   const [totalGames, setTotalGames] = useState(0);
@@ -70,25 +65,38 @@ export default function FilterGames() {
     ordering: "",
   });
 
+  useEffect(() => {
+    fetchGames();
+    console.log("From useEffect onload");
+  }, []);
+
   const fetchGames = () => {
+    const url = "https://api.rawg.io/api/games";
+    const key = "13ccf08eedbc418cbe4a4ac4a7dc751b";
     axios
-      .get("https://api.rawg.io/api/games", {
+      .get(url, {
         params: {
-          key: "13ccf08eedbc418cbe4a4ac4a7dc751b",
           page: queryParameters.page,
           page_size: queryParameters.page_size,
-          search: queryParameters.search,
-          platforms: queryParameters.platforms,
-          genres: queryParameters.genres,
-          dates: queryParameters.dates,
-          ordering: queryParameters.ordering,
+          key: key,
+          // https://stackoverflow.com/questions/52312919/axios-conditional-parameters
+          ...(queryParameters.search ? { search: queryParameters.search } : {}),
+          ...(queryParameters.platforms
+            ? { platforms: queryParameters.platforms }
+            : {}),
+          ...(queryParameters.genres ? { genres: queryParameters.genres } : {}),
+          ...(queryParameters.dates ? { dates: queryParameters.dates } : {}),
+          ...(queryParameters.ordering
+            ? { ordering: queryParameters.ordering }
+            : {}),
         },
       })
-      .then((resp) => {
-        setGames(resp.data.results);
-        setTotalGames(resp.data.count);
+      .then((res) => {
+        setGames(res.data.results);
+        setTotalGames(res.data.count);
       })
       .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -106,8 +114,6 @@ export default function FilterGames() {
       ...queryParameters,
       page: queryParameters.page + 1,
     });
-
-    // refeatch after state change
     fetchGames();
   };
 
@@ -117,12 +123,8 @@ export default function FilterGames() {
       ...queryParameters,
       page: queryParameters.page - 1,
     });
-
-    // refeatch after state change
     fetchGames();
   };
-
-  // featch games on page change or filter change
 
   return (
     <div className="bg-gray-900">
@@ -175,7 +177,7 @@ export default function FilterGames() {
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Platforms</h3>
                     <ul className="px-2 py-3 space-y-1 font-medium text-gray-900">
-                      {subCategories.map((category) => (
+                      {listPlatforms.map((category) => (
                         <li key={category.name}>
                           <input
                             type="radio"
@@ -306,72 +308,39 @@ export default function FilterGames() {
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pt-24 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-white">
-              Games filter
+              More than 810,000 games to discover
             </h1>
 
             <div className="flex items-center">
-              <Menu as="div" className="relative inline-block text-left">
-                <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Sort
-                    <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                  </Menu.Button>
-                </div>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
+              <div className="ml-4 relative flex-shrink-0">
+                <input
+                  class="border-2 border-gray-300 bg-white h-8 px-5 pr-14 rounded text-sm focus:outline-none"
+                  type="search"
+                  name="search"
+                  placeholder="Search"
+                  onChange={(event) => {
+                    setQueryParameters({
+                      ...queryParameters,
+                      search: event.target.value,
+                    });
+                  }}
+                />
+                <button
+                  type="submit"
+                  class="absolute right-0 top-0 py-2 mr-2 cursor-pointer"
+                  onClick={applyFilter}
                 >
-                  <Menu.Items
-                    value={queryParameters.ordering}
-                    onChange={(e) => {
-                      setQueryParameters({
-                        ...queryParameters,
-                        ordering: e.target.value,
-                      });
-                    }}
-                    className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  <svg
+                    className="text-gray-600 h-4 w-4 fill-current"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 56.966 56.966"
                   >
-                    <div className="py-1">
-                      {sortOptions.map((option) => (
-                        <Menu.Item key={option.name}>
-                          {({ active }) => (
-                            <option
-                              value={option.value}
-                              className={classNames(
-                                option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
-                              )}
-                            >
-                              {option.name}
-                            </option>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </div>
-                  </Menu.Items>
-                </Transition>
-              </Menu>
+                    <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                  </svg>
+                </button>
+              </div>
 
-              <button
-                onClick={applyFilter}
-                type="button"
-                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
-              >
-                <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-              </button>
               <button
                 type="button"
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6"
@@ -402,13 +371,13 @@ export default function FilterGames() {
                   <span className="font-medium"> and {totalGames} results</span>
                 </p>
               </div>
-              <div className="flex-1 flex justify-between sm:justify-end">
+              <div className="flex-1 flex justify-between sm:justify-end mt-2">
                 <button
                   disabled={queryParameters.page === totalPages}
                   onClick={() => {
                     previousPage();
                   }}
-                  className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  className="relative inline-flex items-center px-4 py-1 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                   Previous
                 </button>
@@ -417,7 +386,7 @@ export default function FilterGames() {
                   onClick={() => {
                     nextPage();
                   }}
-                  className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                  className="ml-3 relative inline-flex items-center px-4 py-1 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                   Next
                 </button>
