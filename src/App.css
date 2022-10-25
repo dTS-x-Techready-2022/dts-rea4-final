@@ -1,12 +1,16 @@
-.App {
-  text-align: center;
+.App  {
   font-family: 'Playfair Display', serif;
+}
+
+.App h1 {
+  text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -38,12 +42,10 @@
   }
 }
 
-.news-card {
-  margin: 1rem 0;
-}
 
 .news-title {
   font-weight: bold;
+  text-align: center;
 }
 
 .news-author {
@@ -51,12 +53,13 @@
   font-size: 10px;
   display: flex;
   justify-content: flex-start;
+  font-family: 'Playfair Display', serif;
 }
 
 .news-content {
-  display: flex;
-  justify-content: flex-start;
   font-style: italic;
+  font-family: 'Playfair Display', serif;
+  text-align: justify;
 }
 
 .news-source {
@@ -70,6 +73,10 @@
 .news-wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.news-card {
+  margin: 1rem 0;
 }
 
 .skeleton {

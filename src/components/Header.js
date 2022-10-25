@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import "./Header.css";
 
 import logo from "../assets/logo.png";
@@ -23,9 +25,10 @@ export default function Header() {
           </div>
         </div>
         <ul className="menu">
-          <li>News</li>
-          <li>Sport</li>
-          <li>Sains</li>
+          <Link to='/'>Home</Link>
+          <Link to='/headline'>Headline News</Link>
+          <Link to='/sport'>Sport News</Link>
+          <Link to='/science'>Science News</Link>
           <li>Tech</li>
           <li>Entertainment</li>
           <li>Life Style</li>

@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import "./App.css";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import News from "./components/News";
+import HeadlinePage from "./pages/HeadlinePage";
+import HomePage from "./pages/HomePage";
+import SciencePage from "./pages/SciencePage";
+import SportPage from "./pages/SportPage";
 
 function App() {
-  const [data, setData] = useState();
-
-  let url =  
-    "https://newsapi.org/v2/top-headlines?" +
-    "country=id&" +
-    "apiKey=e10c6e1cb638440c9fc6184d93c1d0af";
-    
-
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => setData(response.data.articles))
-      // .then((response) => console.log(response.data.results))
-      .catch((err) => console.log("show error", err));
-  }, []);
-
-  console.log("data", data);
 
   return (
     <div className="App">
-      <Header />
-      <News data={data} />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/headline' element={<HeadlinePage />} />
+          <Route path='/sport' element={<SportPage />} />
+          <Route path='/science' element={<SciencePage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
