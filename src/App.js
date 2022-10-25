@@ -4,7 +4,7 @@ import Register from "./app/components/forms/FormRegister";
 import Profile from "./app/pages/Profile";
 import Home from "./app/pages/Home";
 import Header from "./app/components/Header";
-import Footer from "./app/components/footer";
+import Footer from "./app/components/Footer";
 
 import { Container } from "react-bootstrap";
 
@@ -14,7 +14,6 @@ import "./app/assets/css/styles.css";
 import "./app/assets/css/responsive.css";
 import 'font-awesome/css/font-awesome.min.css';
 import Dashboard from "./app/pages/Dashboard";
-import Footer from "./app/components/Footer";
 import ArticleDetail from "./app/components/Article/ArticleDetail";
 
 const App = () => {
@@ -37,7 +36,7 @@ const App = () => {
                   </Routes>
                </div>
             </Container>
-            
+
             <Footer />
          </Router>
       </>

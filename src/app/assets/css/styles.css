@@ -160,3 +160,18 @@ a {
   background: #ed1c24;
   color: white;
 }
+
+.text-break {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.text-break-line-2 {
+  -webkit-line-clamp: 2;
+}
+
+.text-break-line-3 {
+  -webkit-line-clamp: 3;
+}

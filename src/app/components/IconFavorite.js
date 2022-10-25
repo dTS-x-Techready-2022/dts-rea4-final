@@ -25,7 +25,7 @@ export default function IconFavorite() {
       return (
          <>
             <button type="button" className="btn btn-danger btn-sm" style={{ position: 'absolute', right: 0 }} onClick={handleFavorite}>
-               <i class={isFavorite ? "fa fa-heart" : "fa fa-heart-o"} aria-hidden="true"></i>
+               <i className={isFavorite ? "fa fa-heart" : "fa fa-heart-o"} aria-hidden="true"></i>
             </button>
             <ToastContainer />
          </>

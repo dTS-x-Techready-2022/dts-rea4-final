@@ -1,38 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Row } from 'react-bootstrap';
 import { options1 } from './CarouselOptions';
 import Categories from './Categories';
+import ArticleService from '../services/article.service';
+
+const Article = ({ article }) => {
+   return (
+      <div className="position-relative overflow-hidden" style={{ height: 435 }}>
+         <img className="img-fluid h-100" src={article.urlToImage} style={{ objectFit: 'cover' }} alt="" />
+         <div className="overlay">
+            <strong className="mb-1 text-danger">{article.source.name}</strong>
+            <a className="h2 m-0 text-white font-weight-bold text-break text-break-line-2" href>{article.title}</a>
+         </div>
+      </div>
+   )
+}
 
 export default function Hero() {
+
+   const [articles, setArticles] = useState([])
+
+   useEffect(() => {
+      (async () => {
+         try {
+            const response = await ArticleService.getTopArticles()
+            //console.log(response.data.articles);
+            setArticles(response.data.articles)
+         } catch (error) {
+            console.log(error);
+         }
+      })();
+   }, [])
+
    return (
       <Row className='pt-3 pb-4'>
          <div className="col-lg-8 mb-3">
             <OwlCarousel className="position-relative" {...options1}>
-               <div className="position-relative overflow-hidden" style={{ height: 435 }}>
-                  <img className="img-fluid h-100" src="https://unsplash.it/500/500/?image=5" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay">
-                     <div className="mb-1">
-                        <a className="text-white" href>Technology</a>
-                        <span className="px-2 text-white">/</span>
-                        <a className="text-white" href>January 01, 2045</a>
-                     </div>
-                     <a className="h2 m-0 text-white font-weight-bold" href>Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                  </div>
-               </div>
-               <div className="position-relative overflow-hidden" style={{ height: 435 }}>
-                  <img className="img-fluid h-100" src="https://unsplash.it/300/300/?image=6" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay">
-                     <div className="mb-1">
-                        <a className="text-white" href>Technology</a>
-                        <span className="px-2 text-white">/</span>
-                        <a className="text-white" href>January 01, 2045</a>
-                     </div>
-                     <a className="h2 m-0 text-white font-weight-bold" href>Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed</a>
-                  </div>
-               </div>
+               {
+                  articles.length ?
+                     articles.slice(0, 3).map((article, i) => (
+                        <Article article={article} key={i} />
+                     )) : null
+               }
             </OwlCarousel>
          </div>
 
