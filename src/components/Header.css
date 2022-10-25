@@ -1,3 +1,8 @@
+.Header h3 {
+    text-decoration: none;
+    font-weight: bold;
+  }
+
 .header-wrap {
     display: flex;
     padding-top: 2rem;
@@ -26,12 +31,12 @@ img {
     justify-content: space-around;
 }
 
-.menu li {
+.menu h3 {
     padding-right: 1rem;
     font-weight: bold;
 }
 
-.menu .Link {
+.nav-link {
     font-weight: bold;
-    
+    text-decoration: none;
 }

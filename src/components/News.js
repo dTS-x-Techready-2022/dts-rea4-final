@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 
 function News(props) {
   const news = props.data;
-  console.log("from news.js", news);
+  // console.log("from news.js", news);
 
   return (
     <Container maxWidth="lg">

@@ -11,7 +11,7 @@ import { CardActionArea } from "@mui/material";
 
 function NewsArticles(data) {
   const showArticle = data.data;
-
+  
   // console.log("news article", showArticle.url);
 
   const openInNewTab = url => {
@@ -19,8 +19,6 @@ function NewsArticles(data) {
   };
 
   const getTime = showArticle.publishedAt;
-
-  console.log('newsarticle', getTime)
 
   //   let dom = new JSDOM()
 

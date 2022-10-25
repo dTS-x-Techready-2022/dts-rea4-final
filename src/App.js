@@ -6,7 +6,7 @@ import HeadlinePage from "./pages/HeadlinePage";
 import HomePage from "./pages/HomePage";
 import SciencePage from "./pages/SciencePage";
 import SportPage from "./pages/SportPage";
-
+ 
 function App() {
 
   return (

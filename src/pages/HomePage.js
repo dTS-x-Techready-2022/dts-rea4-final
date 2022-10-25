@@ -25,7 +25,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header />
+      <Header data={data}/>
       <h1>Today News</h1>
       <News data={data} />
       <Footer />
