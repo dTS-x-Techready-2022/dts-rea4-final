@@ -1,9 +1,4 @@
-import { useEffect } from "react";
-
 const ItemNews = ({ news }) => {
-  useEffect(() => {
-    console.log(news);
-  });
   return (
     <div className="card me-4 my-2" style={{ width: "18rem" }}>
       <img src={news?.urlToImage} className="card-img-top" alt="..." />

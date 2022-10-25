@@ -1,10 +1,10 @@
-import styles from "./HomePage.module.css";
 import { fetchHeroNews, fetchNews, fetchSideNews } from "../../store/action";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeroNews from "../../components/HeroNews/HeroNews";
 import ItemNews from "../../components/ItemNews";
 import SideNews from "../../components/SideNews/SideNews";
+import { ColorRing } from "react-loader-spinner";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(
       fetchNews(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=36de18a8eb2347dc9c007743ea82ecaa"
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=12be082ffa4c4d169ad13ecd12bd8687`
       )
     ).then(() => {
       setIsLoading(false);
@@ -25,7 +25,7 @@ const HomePage = () => {
 
     dispatch(
       fetchHeroNews(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=36de18a8eb2347dc9c007743ea82ecaa&pageSize=1"
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=12be082ffa4c4d169ad13ecd12bd8687&pageSize=1`
       )
     ).then(() => {
       setIsLoading(false);
@@ -33,7 +33,7 @@ const HomePage = () => {
 
     dispatch(
       fetchSideNews(
-        "https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=36de18a8eb2347dc9c007743ea82ecaa&pageSize=4"
+        `https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=12be082ffa4c4d169ad13ecd12bd8687&pageSize=4`
       )
     ).then(() => {
       setIsLoading(false);
@@ -41,7 +41,20 @@ const HomePage = () => {
   }, []);
 
   if (isLoading) {
-    return <h1 className="container mt-4">Tunggu ya</h1>;
+    // return <h1 className="container mt-4">Tunggu ya</h1>;
+    return (
+      <div className="h-100 d-flex align-items-center justify-content-center">
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#000000"]}
+        />
+      </div>
+    );
   } else {
     return (
       <div className="container mt-4">
@@ -64,7 +77,17 @@ const HomePage = () => {
               return <ItemNews news={news} />;
             })
           ) : (
-            <h1 className="container mt-4">Tunggu ya</h1>
+            <div className="h-100 d-flex align-items-center justify-content-center">
+              <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={["#000000"]}
+              />
+            </div>
           )}
         </div>
       </div>

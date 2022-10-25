@@ -1,6 +1,6 @@
-# DTS REA4 Final Project
+<!-- # DTS REA4 Final Project
 
-Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk). 
+Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk).
 
 ## Daftar pair
 
@@ -17,3 +17,27 @@ Contoh: `dts4a-01-final`
 ## Branching, commit
 
 Branch dapat sesuai dengan kebutuhan dan kesepakatan bersama dalam pair, namun hasil akhirnya harus di merge ke branch `main` dan di push ke Github. Pastikan hasil akhir kode sudah ter-push!
+
+ -->
+
+# DTS REA4 FINAL PROJECT
+
+## API YANG DIGUNAKAN
+
+https://newsapi.org/
+
+## Link live app
+
+--
+
+## Link GITHUB
+
+https://github.com/reinhardjk14/dts4c-18-final
+
+## Details
+
+Merupakan sebuah website berita simple yang diambil menggunakan API https://newsapi.org/ , memiliki fungsi register, login, dan logout.
+
+## Member
+
+Reinhard Jordi Kurniawan

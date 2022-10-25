@@ -1,18 +1,16 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+// import { loginUser } from "../store/action";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import { signIn } from "../../components/signin";
+import { signUp } from "../../components/signup";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useContext } from "react";
-import { AuthContext } from "../../components/AuthProvider";
 
-function LoginPage() {
+function RegisterPage() {
   const navigate = useNavigate();
-
-  const { setUser } = useContext(AuthContext);
-  const [formLogin, setFormLogin] = useState({
+  const [formRegister, setFormRegister] = useState({
     email: "",
     password: "",
   });
@@ -20,30 +18,26 @@ function LoginPage() {
   const formHandler = (e) => {
     const { value, name } = e.target;
     const form = {
-      email: formLogin.email,
-      password: formLogin.password,
+      email: formRegister.email,
+      password: formRegister.password,
     };
     form[name] = value;
-    setFormLogin(form);
+    setFormRegister(form);
   };
 
-  const loginHandler = async (e) => {
+  const registerHandler = async (e) => {
     e.preventDefault();
-    const response = await signIn(formLogin.email, formLogin.password);
+    const response = await signUp(formRegister.email, formRegister.password);
     console.log(response);
-    if (response.message == "Firebase: Error (auth/wrong-password).") {
-      Swal.fire("Wrong password");
-    } else if (response.message == "Firebase: Error (auth/user-not-found).") {
-      Swal.fire("Email not registered, please register first");
-      navigate("/register");
+    if (response.message == "Firebase: Error (auth/email-already-in-use).") {
+      Swal.fire("Email has already been used, please use another email");
     } else {
-      Swal.fire("Successfully logged in");
-      setUser(response.accessToken);
-      navigate("/");
+      Swal.fire("Success registering new email, please sign in");
+      navigate("/login");
     }
   };
   return (
-    <Form onSubmit={loginHandler} className="mt-3 ms-6 w-25 container">
+    <Form onSubmit={registerHandler} className="mt-3 ms-6 w-25 container">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
@@ -51,7 +45,7 @@ function LoginPage() {
           name="email"
           type="email"
           placeholder="Enter email"
-          value={formLogin.email}
+          value={formRegister.email}
         />
       </Form.Group>
 
@@ -62,11 +56,11 @@ function LoginPage() {
           name="password"
           type="password"
           placeholder="Password"
-          value={formLogin.password}
+          value={formRegister.password}
         />
       </Form.Group>
       <div>
-        <Link to="/register">Don't have an account? Please register</Link>
+        <Link to="/login">Have an account? Please sign in</Link>
       </div>
       <Button variant="dark" type="submit" className="mt-3">
         Submit
@@ -75,4 +69,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
