@@ -1,4 +1,5 @@
 import React from "react";
+import moment from 'moment';
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -16,6 +17,10 @@ function NewsArticles(data) {
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
+
+  const getTime = showArticle.publishedAt;
+
+  console.log('newsarticle', getTime)
 
   //   let dom = new JSDOM()
 
@@ -43,7 +48,8 @@ function NewsArticles(data) {
             component="div"
             className="news-author"
           >
-            Penulis : {showArticle.author}
+            Penulis : {showArticle.author}<br />
+            Rilis : {moment(getTime).format('LLL')}
           </Typography>
           <Typography variant="body2" color="text.secondary" className="news-content">
             {showArticle.content}
