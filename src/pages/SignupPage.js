@@ -1,49 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from "../components/firebase";
+import { auth, registerWithEmailAndPassword } from "components/firebase";
 const SignupPage = () => {
   const navigate = useNavigate();
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
   });
   const [user, loading, error] = useAuthState(auth);
-  // const signUp = async () => {
-  //     if (!name) alert('Please enter name');
-  //     const res = await registerWithEmailAndPassword(name, email, password);
-  //     if (res === 'Firebase: Error (auth/email-already-in-use).') {
-  //         console.log('err');
-  //     } else {
-  //         console.log('sukses sign up');
-  //     }
-  // };
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/signup");
+    if (user) navigate("/");
   }, [user, loading]);
-
-  // const signUp = async () => {
-  //     const response = await signingUp(email, password);
-  //     if (!response.message) {
-  //         setUser(response.accessToken);
-  //         // signingIn
-  //         const signedIn = await signingIn(email, password);
-  //         if (!signedIn.message) {
-  //             navigate('/');
-  //         }
-  //     } else {
-  //         console.log('error');
-  //     }
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
