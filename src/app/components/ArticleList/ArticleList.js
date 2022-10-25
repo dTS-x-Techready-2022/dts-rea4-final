@@ -112,7 +112,6 @@ handleIncrement = () => {
               <div key={index} className="individual-subcategory"
                    onClick={() => this.handleSubCategoryClick(subCategory)}>
                 <button 
-                onClick={this.handleIncrement}
                 className="subcategory-pill">{subCategory}</button>
               </div>
             )}

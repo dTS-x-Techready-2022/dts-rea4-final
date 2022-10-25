@@ -20,58 +20,7 @@ const Dashboard = () => {
          </div>
          <div className="row">
             <ArticleList />
-            <div className="col-lg-3 col-6">
-               <div className="position-relative mb-4">
-                  <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay position-relative bg-light">
-                     <div className="mb-2" style={{ fontSize: 14 }}>
-                        <a href>Technology</a>
-                        <span className="px-1">/</span>
-                        <span>January 01, 2045</span>
-                     </div>
-                     <a className="h5" href>Est stet amet ipsum stet clita rebum duo</a>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3 col-6">
-               <div className="position-relative mb-4">
-                  <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay position-relative bg-light">
-                     <div className="mb-2" style={{ fontSize: 14 }}>
-                        <a href>Technology</a>
-                        <span className="px-1">/</span>
-                        <span>January 01, 2045</span>
-                     </div>
-                     <a className="h5" href>Est stet amet ipsum stet clita rebum duo</a>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3 col-6">
-               <div className="position-relative mb-4">
-                  <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay position-relative bg-light">
-                     <div className="mb-2" style={{ fontSize: 14 }}>
-                        <a href>Technology</a>
-                        <span className="px-1">/</span>
-                        <span>January 01, 2045</span>
-                     </div>
-                     <a className="h5" href>Est stet amet ipsum stet clita rebum duo</a>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3 col-6">
-               <div className="position-relative mb-4">
-                  <img className="img-fluid w-100" src="https://unsplash.it/500/300/?image=12" style={{ objectFit: 'cover' }} alt="" />
-                  <div className="overlay position-relative bg-light">
-                     <div className="mb-2" style={{ fontSize: 14 }}>
-                        <a href>Technology</a>
-                        <span className="px-1">/</span>
-                        <span>January 01, 2045</span>
-                     </div>
-                     <a className="h5" href>Est stet amet ipsum stet clita rebum duo</a>
-                  </div>
-               </div>
-            </div>
+            
          </div>
          
       </>

@@ -7,6 +7,7 @@ TODO :
 [ ] Dashboard - Show list seen news <br>
 
 Features :
+![](https://github.com/rendyproklamanta/DTS4C-10-Final.git/public/Feature.gif)
 
 - Register Function
 - Login Function
