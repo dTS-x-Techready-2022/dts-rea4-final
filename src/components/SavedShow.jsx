@@ -26,6 +26,19 @@ const SavedShow = () => {
             setMovies(doc.data()?.savedMovie)
         })
     },[user?.email])
+
+    const movieRef = doc(db, 'users', `${user?.email}`)
+    const deleteShow = async (passedID) => {
+        try{
+            console.log("delete "+ passedID)
+            const result = movies.filter((item) => item.id !== passedID)
+            await updateDoc(movieRef, {
+                savedMovie:result,
+            });
+        } catch (error){
+            console.log(error)
+        }
+    }
     
   return (
     <div>
@@ -35,7 +48,7 @@ const SavedShow = () => {
             <div id={'slider'} className='w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
                 {movies.map((item, id) => (
                     <div key={id} className='w-[150px] sm:w-[190px] lg:w-[240px] inline-block cursor-pointer relative p-2'>
-                        <p className='absolute text-gray-300 top-4 right-4'><AiOutlineClose /></p>
+                        <p onClick={() => deleteShow(item.id)} className='absolute text-gray-300 top-4 right-4'><AiOutlineClose /></p>
                         <div className='border-black rounded-sm border hover:border-purple-800'>
                             
                             <Link to={`/detail/${item.id}`}>
