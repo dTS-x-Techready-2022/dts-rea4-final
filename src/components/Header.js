@@ -5,12 +5,10 @@ import logo from "../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Container from "@mui/material/Container";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import Link from "@mui/material/Link";
 
 export default function Header(props) {
-  const news = props.data;
-
   const [q, setQ] = useState(""); //fitur search
 
   // console.log('header', props.data);
@@ -38,6 +36,14 @@ export default function Header(props) {
             <IconButton sx={{ p: "10px" }} aria-label="menu">
               <SearchIcon />
             </IconButton>
+            {/* <Link
+            href="/signup"
+            underline="hover"
+            color="inherit"
+            backgroundColor="hover"
+          >
+            <h3>Login</h3>
+          </Link> */}
           </div>
         </div>
         <div className="menu">
@@ -47,7 +53,7 @@ export default function Header(props) {
             color="inherit"
             backgroundColor="hover"
           >
-              <h3>Home</h3>
+            <h3>Home</h3>
           </Link>
           <Link href="/headline" underline="hover" color="inherit">
             <h3>Headline</h3>
