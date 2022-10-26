@@ -8,6 +8,7 @@ const DetailMovie = ({movie_id}) => {
 
     const [movie, setMovie] = useState ([])
     const [trailers, setTrailers] = useState ([])
+    const trailer = trailers[Math.floor(Math.random() * trailers.length)]
 
     useEffect(() => {
         axios.get(fetchURL).then((response) => {
@@ -21,29 +22,26 @@ const DetailMovie = ({movie_id}) => {
         })
     },[fetchURLTrailer])
 
-    const trailer = trailers[Math.floor(Math.random() * trailers.length)]
-
-    console.log(movie)
-    console.log(trailers)
-    console.log('Detail' + trailers.length)
-
   return (
     <>
-    <div className='w-full h-[450px] sm:h-[500px] md:h-[800px] text-white'>
+    {/* <div className='w-full h-[450px] sm:h-[500px] md:h-[800px] text-white'> */}
       <div className='w-full h-full'>
-        <div className='absolute w-full h-[450px] sm:h-[500px] md:h-[800px] bg-gradient-to-r from-black'></div>
-        <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`} alt={movie?.title} />
-        <div className='absolute w-full top-[20%] md:top-[30%] p-4 md:p-8'>
-          <h1 className='text-3xl md:text-5xl font-bold'>{movie?.title}</h1>
-          <p className='text-sm py-2 w-full md:max-w-[70%] lg:max-w-[45%] xl:max-w[35%] text-gray-200'>{movie?.overview}</p>
-          <div>
-            <button className='rounded-sm bg-white text-black py-2 px-5'>Play</button>
-            <button className='rounded-sm bg-white/[.3] py-2 px-5 ml-4'>More Information</button>
+        <div className='w-full h-full md:bg-gradient-to-r z-[-99] md:from-black'></div>
+        <img className='blur-lg fixed w-full object-cover h-full z-[-100]' src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`} alt={movie?.title} />
+        <div className='flex flex-col items-center justify-center py-[100px]'>
+          <div className='flex flex-row p-10 max-w-[1600px]'>
+            <img className='hidden sm:block border-solid border-2 border-purple-900 sm:w-[30%] max-w-[300px] md:block lg:max-h-[450px] object-cover' src={`https://image.tmdb.org/t/p/w1280${movie?.poster_path}`} alt={movie?.title} />
+            <div className='flex flex-col px-5 items-center '>
+              <img className='block sm:hidden object-cover py-4 max-w-[200px]' src={`https://image.tmdb.org/t/p/w1280${movie?.poster_path}`} alt={movie?.title} />
+              <h1 className='top-0 text-3xl md:text-5xl font-bold text-white'>{movie?.title}</h1>
+              <p className='text-sm py-2 w-fulllg:max-w-[70%] xl:max-w[45%] text-gray-200'>{movie?.overview}</p>
+            </div>
           </div>
+          <iframe className='w-full min-h-[350px] sm:min-h-[450px] md:min-h-[620px] lg:max-w-[1080px] p-10' src={`https://www.youtube.com/embed/${trailer?.key}`} title={trailer?.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-      <iframe className='h-full w-full' src={`https://www.youtube.com/embed/${trailer.key}`} title={trailer.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+      
+    {/* </div> */}
     </>
   )
 }
