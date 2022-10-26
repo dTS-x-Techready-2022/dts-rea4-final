@@ -1,7 +1,25 @@
+import { async } from '@firebase/util'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext'
 
 const SignUp = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {user, signUp} = UserAuth()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try{
+      await signUp(email, password)
+      navigate('/')
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <>
     <div className='w-full h-full'>
@@ -11,9 +29,9 @@ const SignUp = () => {
         <div className='max-w-[450px] h-[600ox] mx-auto bg-black/75 text-white'>
           <div className='max-w-[320px] mx-auto py-16'>
             <h1 className='text-3xl font-bold'>Sign Up</h1>
-            <form className='w-full flex flex-col'>
-              <input className='p-3 bg-gray-600 rounded my-2' type='email' placeholder='Email'></input>
-              <input className='p-3 bg-gray-600 rounded my-2' type='password' placeholder='Password'></input>
+            <form onSubmit={handleSubmit} className='w-full flex flex-col'>
+              <input onChange={(e) => setEmail(e.target.value)} className='p-3 bg-gray-600 rounded my-2' type='email' placeholder='Email'></input>
+              <input onChange={(e) => setPassword(e.target.value)} className='p-3 bg-gray-600 rounded my-2' type='password' placeholder='Password'></input>
               <button className='bg-purple-800 py-3 my-6 rounded font-bold'>Sign Up</button>
               <p><span className='text-gray-500'>Already have an account?</span> <Link to='/login'>Sign In</Link></p>
             </form>
