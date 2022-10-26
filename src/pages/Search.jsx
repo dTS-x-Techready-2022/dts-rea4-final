@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { Link, useParams } from 'react-router-dom';
 import Movie from '../components/Movie';
 
@@ -18,18 +17,6 @@ const Search = () => {
         })
     },[fetchURL])
 
-    console.log(movies)
-
-    const slideLeft = () => {
-        var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft - 450;
-    }
-
-    const slideRight = () => {
-        var slider = document.getElementById('slider');
-        slider.scrollLeft = slider.scrollLeft + 450;
-    }
-
   return (
     <div>
         <div className='w-full text-white'>
@@ -40,13 +27,11 @@ const Search = () => {
             </div>
         </div>
         <div className='relative flex items-center px-3 group'>
-            <MdChevronLeft onClick={slideLeft} className='bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 left-3 hidden group-hover:block' size={40}/>
-            <div id={'slider'} className='w-full h-full overflow-x-scroll scroll-smooth'>
+            <div id={'slider'} className='w-full h-full'>
                 {movies.map((item, id) => (
                     <Movie key={id} item={item}/>
                 ))}
             </div>
-            <MdChevronRight onClick={slideRight} className='bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 right-3 hidden group-hover:block' size={40}/>
         </div>
     </div>
   )

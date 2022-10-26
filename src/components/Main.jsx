@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import requests from '../Request'
 
 const Main = () => {
@@ -23,8 +24,10 @@ const Main = () => {
           <h1 className='text-3xl md:text-5xl font-bold'>{movie?.title}</h1>
           <p className='text-sm py-2 w-full md:max-w-[70%] lg:max-w-[45%] xl:max-w[35%] text-gray-200'>{movie?.overview}</p>
           <div>
+          <Link to={`/detail/${movie?.id}`}>
             <button className='rounded-sm bg-white text-black py-2 px-5'>Play</button>
             <button className='rounded-sm bg-white/[.3] py-2 px-5 ml-4'>More Information</button>
+            </Link>
           </div>
         </div>
       </div>

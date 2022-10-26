@@ -20,7 +20,6 @@ const Navbar = () => {
 
     const handleSearch = (e) => {
         try{
-            alert('An essay was submitted: ' + search);
             navigate(`/search/${search}`)
         }catch(error){
             console.log(error)
