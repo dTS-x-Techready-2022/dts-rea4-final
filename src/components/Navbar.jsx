@@ -1,4 +1,3 @@
-import { async } from '@firebase/util'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
@@ -30,7 +29,7 @@ const Navbar = () => {
         </Link>
         {user?.email ? 
         <div>
-            <Link to='/login'>
+            <Link to='/account'>
                 <button className='text-white pr-4'>Account</button>
             </Link>
                 <button onClick={handleLogout} className='bg-purple-800 px-6 py-2 rounded cursor-pointer text-white'>Logout</button>

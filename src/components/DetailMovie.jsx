@@ -37,7 +37,7 @@ const DetailMovie = ({movie_id}) => {
               <p className='text-sm py-2 w-fulllg:max-w-[70%] xl:max-w[45%] text-gray-200'>{movie?.overview}</p>
             </div>
           </div>
-          <iframe className='w-full min-h-[350px] sm:min-h-[450px] md:min-h-[620px] lg:max-w-[1080px] p-10' src={`https://www.youtube.com/embed/${trailer?.key}`} title={trailer?.name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className='w-full min-h-[350px] sm:min-h-[450px] md:min-h-[620px] lg:max-w-[1080px] p-10' src={`https://www.youtube.com/embed/${trailer?.key}`} title={trailer?.name}></iframe>
         </div>
       </div>
       
