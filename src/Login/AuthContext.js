@@ -15,8 +15,7 @@ export function AuthProvider({children, value}) {
 export function useAuthValue(){
   return useContext(AuthContext)
 }
-
+//---- untuk lupa password
 export const forgotPassword = (email) => {
-  
   return sendPasswordResetEmail(auth, email);
 };

@@ -1,7 +1,13 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 //import './forms.css'
-import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
+import {
+  signInWithEmailAndPassword, 
+  sendEmailVerification, 
+  GoogleAuthProvider, 
+  signInWithPopup,
+  onAuthStateChanged
+} from 'firebase/auth'
 import {auth} from '../Config/firebase'
 import {useNavigate} from 'react-router-dom'
 import {forgotPassword, useAuthValue} from './AuthContext'
@@ -15,10 +21,8 @@ function Login(){
   const [error, setError] = useState('')
   const {setTimeActive} = useAuthValue()
   const navigate = useNavigate()
-
   const [showModal, setShowModal] = useState(false);
-
-
+//-------untuk proses login
   const login = e => {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
@@ -36,22 +40,54 @@ function Login(){
     })
     .catch(err => setError(err.message))
   }
+
+  //--------untuk proses lupa password
   const forgotPasswordHandler = () => {
-    //const email = emailRef.current.value;
     //const email = 'job.pangandaran@gmail.com';
     const email = document.getElementById("emailuser").value;
-    if (email){
-   
+    if (email){   
       forgotPassword(email).then(() => {
-        alert('Silahkan Cek email untuk reset Password') 
+        alert('Please Check your email to reset Password !!!') 
         setShowModal(false)
       });
     }else{
-      alert('Reset Password gagal') ;
+      alert('Password Reset failed, please try again !!!') ;
       setShowModal(false)
-  
     }
   };
+  //--------proses login google 
+  const provider = new GoogleAuthProvider();
+
+const loginGoogle = () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // untuk token google akses API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential?.accessToken;
+            const user = result.user;
+           // console.log({ credential, token, user });
+        })
+        .catch((error) => {
+            
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            //console.log({ errorCode, errorMessage, email, credential });
+        });
+};
+        useEffect(() => {
+          onAuthStateChanged(auth, (user) => {
+              if (user) {
+                  const uid = user.uid;
+                  console.log({ uid });
+              } else {
+                  console.log("no user");
+              }
+          });
+        }, []);
+        
+//-----------------end proses login google
   return(
 <section className="h-full gradient-form bg-gray-200 md:h-screen">
   <div className="container py-12 px-6 h-full" >
@@ -67,9 +103,24 @@ function Login(){
                     src={LoginLogo}
                     alt="logo"
                   />
+                 
                   <h4 className="text-xl font-semibold mt-1 mb-12 pb-1">DTS4C-23-FINAL</h4>
                 </div>
-                {error && <div className='auth__error'>{error}</div>}
+                <div className="flex justify-center">
+                  <button type="button" 
+                  onClick={loginGoogle}
+                  data-mdb-ripple="true" 
+                  data-mdb-ripple-color="light" 
+                  className="inline-block p-3 mb-2 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" 
+                  style = {{background: "linear-gradient(to right, red , #bd0026)"}} >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" className="w-4 h-4">
+                      <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                {error && <div className='auth__error'>{/*error*/} 
+                  <p style={{textAlign:"center", color:"red"}}>Wrong Username or Password !!! Please Try again</p></div>}
                   <form onSubmit={login} name='login_form'>
                   <p className="mb-4">Please login to your account</p>
                   <div className="mb-4">
@@ -130,6 +181,7 @@ function Login(){
                     >
                       Forgot Password
                     </button>
+                    
                   </div>
                   <div className="flex items-center justify-between pb-6">
                     <p className="mb-0 mr-2">Don't have an account?</p>
@@ -202,8 +254,6 @@ function Login(){
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
-    
-  
                   </div>
                 </form>
               </div>
@@ -216,8 +266,7 @@ function Login(){
             >
               <div className="text-white px-4 py-6 md:p-12 md:mx-6">
                 <h4 className="text-xl font-semibold mb-6"></h4>
-                <p className="text-sm">
-                  
+                <p className="text-sm">   
                 </p>
               </div>
             </div>
@@ -226,9 +275,6 @@ function Login(){
       </div>
     </div>
   </div>
-  
-  
-  
 </section>
   )
 }

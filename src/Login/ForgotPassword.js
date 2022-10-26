@@ -3,9 +3,7 @@ import { forgotPassword } from "./AuthContext";
 
 
 function ForgotPassword() {
-
   const forgotPasswordHandler = () => {
-    //const email = emailRef.current.value;
     //const email = 'job.pangandaran@gmail.com';
     const email = document.getElementById("emailuser").value;
     if (email){

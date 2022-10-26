@@ -54,7 +54,7 @@ function VerifyEmail() {
 
   return (
 
-    <section className="h-full gradient-form bg-gray-200 md:h-screen">
+<section className="h-full gradient-form bg-gray-200 md:h-screen">
   <div className="container py-12 px-6 h-full" >
     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
       <div className="xl:w-10/12">
@@ -72,23 +72,20 @@ function VerifyEmail() {
                 </div>
                 <p className="mb-4">Please verify your email</p>
                   <div className="mb-4">
-                  <p>
-    A verification email has been sent to email :<br/>
-    <strong>{currentUser?.email}</strong> Please follow the verification instructions in your email</p><br/>
-  <button  className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-     style={{
-      background: "linear-gradient(to right, #FD841F, #E14D2A )"
-    }}
-    onClick={resendEmailVerification}
-    disabled={timeActive}
-  >Resend Email {timeActive && time}</button>
-
+                  <p>A verification email has been sent to email :<br/>
+                  <strong>{currentUser?.email}</strong> Please follow the verification instructions in your email</p><br/>
+                <button  
+                      className="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                      style={{background: "linear-gradient(to right, #FD841F, #E14D2A )"}}
+                      onClick={resendEmailVerification}
+                      disabled={timeActive}
+                      >Resend Email {timeActive && time}</button>
                   </div>
               </div>
             </div>
             <div
-              className="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
-              style={{
+                className="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+                style={{
                 backgroundImage: "url(" + registerLogo + ")",
                 backgroundColor:"#4d4d4d",
                 backgroundRepeat : 'no-repeat',
@@ -107,12 +104,7 @@ function VerifyEmail() {
       </div>
     </div>
   </div>
-  
-  
-  
 </section>
-
-
   )
 }
 

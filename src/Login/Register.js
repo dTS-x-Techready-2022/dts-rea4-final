@@ -16,6 +16,7 @@ function Register() {
   const navigate = useNavigate()
   const {setTimeActive} = useAuthValue()
 
+  //-------- proses validasi password
   const validatePassword = () => {
     let isValid = true
     if (password !== '' && confirmPassword !== ''){
@@ -31,7 +32,7 @@ function Register() {
     e.preventDefault()
     setError('')
     if(validatePassword()) {
-      // Create a new user with email and password using firebase
+      // Prose membuat user baru di firebase firebase (email/password)
         createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           sendEmailVerification(auth.currentUser)   
@@ -48,9 +49,6 @@ function Register() {
   }
 
   return (
-    
-
-
 <section className="h-full gradient-form bg-gray-200 md:h-screen">
   <div className="container py-12 px-6 h-full" >
     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
@@ -67,8 +65,8 @@ function Register() {
                   />
                   <h4 className="text-xl font-semibold mt-1 mb-12 pb-1">DTS4C-23-FINAL</h4>
                 </div>
-                {error && <div className='auth__error'>{error}</div>}
-        <form onSubmit={register} name='registration_form'>
+                {error && <div className='auth__error' style={{textAlign:"center", color:"red"}}>{error}</div>}
+                <form onSubmit={register} name='registration_form'>
                   <p className="mb-4">Please Register for your account</p>
                   <div className="mb-4">
                     <input
@@ -114,10 +112,7 @@ function Register() {
                       }}
                     >
                       REGISTER
-                    </button>
-                  
-
-                    
+                    </button>    
                   </div>
                   <div className="flex items-center justify-between pb-6">
                     <p className="mb-0 mr-2">already have an account ?</p>
@@ -129,10 +124,6 @@ function Register() {
                     >
                       Login
                     </button></Link>
-                    
-                  
-    
-  
                   </div>
                 </form>
               </div>
@@ -149,7 +140,6 @@ function Register() {
               <div className="text-white px-4 py-6 md:p-12 md:mx-6">
                 <h1 className="text-xl font-semibold mb-6"></h1>
                 <p className="text-sm">
-                  
                 </p>
               </div>
             </div>
@@ -158,9 +148,6 @@ function Register() {
       </div>
     </div>
   </div>
-  
-  
-  
 </section>
   )
 }
