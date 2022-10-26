@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import "./Header.css";
+// import { Link } from "react-router-dom";
 
 import logo from "../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Container from "@mui/material/Container";
-import { IconButton } from "@mui/material";
-
+import { Button, IconButton } from "@mui/material";
+import Link from "@mui/material/Link";
 
 export default function Header(props) {
   const news = props.data;
@@ -20,7 +18,14 @@ export default function Header(props) {
     <div className="header-wrap">
       <Container maxWidth="lg">
         <div className="header-menu-wrap">
-          <img src={logo} alt="Logo" height={50} />
+          <Link
+            href="/"
+            underline="hover"
+            color="inherit"
+            backgroundColor="hover"
+          >
+            <img src={logo} alt="Logo" height={50} />
+          </Link>
           <div>
             <InputBase
               type="search"
@@ -30,22 +35,27 @@ export default function Header(props) {
               value={q}
               onChange={(e) => setQ(e.target.value)}
             />
-            <IconButton sx={{ p: '10px' }} aria-label="menu">
-            <SearchIcon />
+            <IconButton sx={{ p: "10px" }} aria-label="menu">
+              <SearchIcon />
             </IconButton>
           </div>
         </div>
         <div className="menu">
-          <Link to="/" className="nav-link">
-            <h3>Home</h3>
+          <Link
+            href="/"
+            underline="hover"
+            color="inherit"
+            backgroundColor="hover"
+          >
+              <h3>Home</h3>
           </Link>
-          <Link to="/headline" className="nav-link">
+          <Link href="/headline" underline="hover" color="inherit">
             <h3>Headline</h3>
           </Link>
-          <Link to="/sport" className="nav-link">
+          <Link href="/sport" underline="hover" color="inherit">
             <h3>Sport</h3>
           </Link>
-          <Link to="/science" className="nav-link">
+          <Link href="/science" underline="hover" color="inherit">
             <h3>Science</h3>
           </Link>
         </div>

@@ -5,7 +5,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Divider } from "@mui/material";
+
 
 // const { JSDOM } = require('jsdom');
 
@@ -29,7 +30,7 @@ function NewsArticles(data) {
           component="img"
           height="140"
           image={showArticle.urlToImage}
-          alt="No image.."
+          alt='No Images'
         />
         <CardContent>
           <Typography
@@ -40,6 +41,8 @@ function NewsArticles(data) {
           >
             {showArticle.title}
           </Typography>
+          <Divider />
+          <br />
           <Typography
             gutterBottom
             variant="h7"
