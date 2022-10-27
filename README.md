@@ -1,6 +1,15 @@
 # DTS REA4 Final Project
 
+![](./public/reviewproject.gif)
+
+Link : https://dts4c-08-final.netlify.app/
+
+Description : 
+Aplikasi ini adalah list movie menggunkana library JS react js.
+
+
 Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk). 
+
 
 ## Daftar pair
 
