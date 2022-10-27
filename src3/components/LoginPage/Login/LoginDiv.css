@@ -1,0 +1,95 @@
+.logindiv{
+    width: 100%;
+}
+
+.logindiv > .headerdiv{
+    padding: 50px;
+}
+
+.logindiv > .logincarddiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logincard{
+    width: 400px;
+    height:500px;
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.loginbg{
+    z-index: -9;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background-color: black;
+}
+
+.logincard > input{
+    width: 300px;
+    height:40px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: rgb(59, 59, 59);
+    color: rgb(207, 207, 207);
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    padding: 5px 20px;
+}
+.logincard > button{
+    width: 340px;
+    height:40px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: red;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.helpdiv > span{
+    font-size: 14px;
+}
+
+.helpdiv{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin: 0px 20px;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.signin{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 10px;
+}
+.text1{
+    display: flex;
+    align-self: flex-start;
+    margin-left: 34px;
+    font-size: 12px;
+    color: white;
+    margin-top: 10px;
+}
+.text2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: orangered;
+}
