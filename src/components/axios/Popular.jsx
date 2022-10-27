@@ -19,7 +19,7 @@ const Popular = (props) => {
             }
         };
         fetchDataMovies();
-    }, []);
+    },[props]);
 
     const baseUrlForMovie = "https://image.tmdb.org/t/p/w200";
     return (

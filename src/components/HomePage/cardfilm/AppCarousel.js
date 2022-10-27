@@ -1,5 +1,7 @@
 import Carousel from "./Carousel";
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import React from 'react';
+
 // import Movie from "./Movie";
 
 // Generate tahun
