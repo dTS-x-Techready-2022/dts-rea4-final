@@ -1,0 +1,45 @@
+.footerdiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 50px 300px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;
+}
+.listdiv{
+    width: 80%;    
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0px;
+    justify-content: center;
+}
+.eachdiv{
+    width: 25%;
+    height: 150px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.footerdiv > span,.eachdiv > span {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+}
+.footerdiv > span:hover,.eachdiv > span:hover {
+    text-decoration: underline;
+}
+
+.footerdiv > button{
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    border: 1px solid white;
+    background-color: var(--main-color);
+    cursor: pointer;
+    margin: 10px 0px;
+}
