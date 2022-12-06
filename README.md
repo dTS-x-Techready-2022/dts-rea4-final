@@ -1,19 +1,29 @@
-# DTS REA4 Final Project
+# About this project
 
-Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk). 
+There are a variety of games to choose from, and we provide you with all the information you need to know before choosing one that's right for you!
 
-## Daftar pair
+we create this website using react.js on the front end and firebase as the backend to store our data.
 
-Tugas dikerjakan secara berpasangan, untuk daftar kelompok bisa dilihat pada masing-masing Classroom atau Discord Class.
+As this is our final project, we primarily worked on learning the fundamentals of front-end development and back-end development.
 
-## Fork and Clone
+In the future, we will be working on enhancing the application's UX by creating new user interfaces and adding additional features.
 
-Mohon perwakilan dari pair bisa melakukan fork repo ini dan clone, untuk repositori yang di fork menggunakan penamaan:
+## Features project
 
-`dts4[a/b/c]-[nomor pair]-final`
+1. Login and Register
+2. Search
+3. Filter
+4. Pagination
+5. Add to Wishlist
+6. Profile and wishlist (user can see their wishlist) will be added in the future
 
-Contoh: `dts4a-01-final`
+## Team Members
 
-## Branching, commit
+- Viery Wahyu Setiawan github.com/feriywahyu
+- William Yangjaya
 
-Branch dapat sesuai dengan kebutuhan dan kesepakatan bersama dalam pair, namun hasil akhirnya harus di merge ke branch `main` dan di push ke Github. Pastikan hasil akhir kode sudah ter-push!
+## References
+
+Rawg API: https://rawg.io/apidocs
+
+Kunjungi website kami di https://dts4c-03-final.vercel.app/
